@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appshipping — Sell Apps. Split Profits. No Risk.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">App<span>shipping</span></a>
+    <ul class="nav-links">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#calculator">Earnings</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="list-your-app.html">For Developers</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="list-your-app.html" class="btn btn-outline btn-sm">List Your App</a>
+      <a href="#" class="btn btn-accent btn-sm" onclick="openPopup(); return false;">Start Selling</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#how">How It Works</a>
+  <a href="#apps">Apps</a>
+  <a href="#calculator">Earnings</a>
+  <a href="#faq">FAQ</a>
+  <a href="list-your-app.html">For Developers</a>
+  <a href="careers.html">Careers</a>
+  <button class="btn btn-accent" onclick="openPopup()">Start Selling</button>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="line"></span><span class="badge">New Opportunity</span></div>
+      <h1>Sell apps.<br>Keep the <span class="highlight">profit.</span></h1>
+      <p class="hero-desc">We build the apps. You sell them. Everything you make above our floor price — we split 50/50. No inventory. No coding. No risk.</p>
+      <div class="hero-btns">
+        <button class="btn btn-accent btn-large" onclick="openPopup()">Start Selling →</button>
+        <a href="#how" class="btn btn-outline btn-large">See How It Works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">6+</div><div class="label">Ready-to-sell apps</div></div>
+        <div class="hero-stat"><div class="num">50/50</div><div class="label">Profit split</div></div>
+        <div class="hero-stat"><div class="num">$0</div><div class="label">Upfront cost to you</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-phone"><div class="phone-placeholder pp-loyalty">Loyalty</div></div>
+      <div class="hero-phone"><div class="phone-placeholder pp-food">Food App</div></div>
+      <div class="hero-phone"><div class="phone-placeholder pp-gym">Gym App</div></div>
+      <div class="hero-phone"><div class="phone-placeholder pp-ecom">E-Commerce</div></div>
+      <div class="hero-phone"><div class="phone-placeholder pp-school">School App</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-pad" id="how">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">Three steps. Zero risk.</h2>
+      <p>Appshipping is like dropshipping — but for mobile apps. You find the client, close the deal, and we build & deliver the app.</p>
+    </div>
+    <div class="hiw-steps stagger-children">
+      <div class="hiw-step fade-in"><div class="step-num">01</div><h3>Find a client</h3><p>Restaurants, gyms, schools, online stores — thousands of businesses need an app but don't know where to start. You connect them with us.</p></div>
+      <div class="hiw-step fade-in"><div class="step-num">02</div><h3>Sell above the floor price</h3><p>Each app has a minimum price. You must sell at least <strong style="color:var(--accent)">$500 above the floor</strong> — that guarantees you earn a minimum of $250 per deal.</p></div>
+      <div class="hiw-step fade-in"><div class="step-num">03</div><h3>We handle the rest</h3><p>Design, development, testing, App Store submission, hosting, support — we do all the work. You get paid as the client pays.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section class="section-pad" id="rules">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">The Rules</span>
+      <h2 class="section-title">How deals & payments work</h2>
+      <p>Clear rules, no surprises. Here's what you need to know before you start selling.</p>
+    </div>
+    <div class="rules-grid stagger-children">
+      <div class="rule-card fade-in"><div class="rule-icon">📝</div><div><h3>Contract first, then sell</h3><p>Before you sell a single app, we sign a partnership agreement together. This protects both sides — your commissions, our standards, and the client's expectations.</p></div></div>
+      <div class="rule-card fade-in"><div class="rule-icon">💰</div><div><h3>Minimum $500 above floor</h3><p>Every app must be sold for at least $500 above the floor price. This guarantees you earn a minimum of $250 per deal — we don't want you working for less.</p></div></div>
+      <div class="rule-card fade-in"><div class="rule-icon">⚡</div><div><h3>Get paid immediately</h3><p>Clients pay 50% upfront and 50% on delivery. You receive your share of each payment as it comes in — so you earn money the moment you close the deal.</p></div></div>
+      <div class="rule-card fade-in"><div class="rule-icon">🤝</div><div><h3>50/50 above the floor</h3><p>Everything the client pays above the floor price is split equally between you and us. Sell higher, earn more — there's no cap on your earnings.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- APP CATALOG -->
+<section class="section-pad" id="apps">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">App Catalog</span>
+      <h2 class="section-title">Apps ready to sell</h2>
+      <p>Each app is fully designed and ready to be customized for any client. Your inventory — no stock needed.</p>
+    </div>
+    <div class="catalog-grid stagger-children">
+      <div class="app-card fade-in">
+        <div class="app-card-top"><div class="app-card-info"><span class="app-type">Food Ordering & Delivery</span><h3>Order ahead, get it delivered</h3></div><div class="app-price-badge"><div class="price-label">Floor</div><div class="price">$2.5k</div><div class="price-note">Min sell: $3,000</div></div></div>
+        <p class="app-desc">Full menu management, in-app payments, real-time order & delivery tracking, pickup scheduling, and table ordering.</p>
+        <div class="app-features"><span>Menu builder</span><span>Apple Pay</span><span>Delivery tracking</span><span>Notifications</span></div>
+        <div class="app-card-bottom"><a href="app-food.html" class="btn btn-outline btn-sm">View Details →</a></div>
+      </div>
+      <div class="app-card fade-in">
+        <div class="app-card-top"><div class="app-card-info"><span class="app-type">Loyalty Program</span><h3>Turn visitors into regulars</h3></div><div class="app-price-badge"><div class="price-label">Floor</div><div class="price">$1k</div><div class="price-note">Min sell: $1,500</div></div></div>
+        <p class="app-desc">Points-based loyalty, custom earning rules, redeemable rewards, push notifications, and customer insights.</p>
+        <div class="app-features"><span>Points system</span><span>Rewards</span><span>Push promos</span><span>Analytics</span></div>
+        <div class="app-card-bottom"><a href="app-loyalty.html" class="btn btn-outline btn-sm">View Details →</a></div>
+      </div>
+      <div class="app-card fade-in">
+        <div class="app-card-top"><div class="app-card-info"><span class="app-type">E-Commerce</span><h3>A store in their pocket</h3></div><div class="app-price-badge"><div class="price-label">Floor</div><div class="price">$3k</div><div class="price-note">Min sell: $3,500</div></div></div>
+        <p class="app-desc">Product catalog, secure checkout, order tracking, wishlists, reviews, and personalized recommendations.</p>
+        <div class="app-features"><span>Product catalog</span><span>Checkout</span><span>Tracking</span><span>Wishlists</span></div>
+        <div class="app-card-bottom"><a href="app-ecom.html" class="btn btn-outline btn-sm">View Details →</a></div>
+      </div>
+      <div class="app-card fade-in">
+        <div class="app-card-top"><div class="app-card-info"><span class="app-type">School</span><h3>Connect the whole school</h3></div><div class="app-price-badge"><div class="price-label">Floor</div><div class="price">$3.5k</div><div class="price-note">Min sell: $4,000</div></div></div>
+        <p class="app-desc">Class schedules, parent-student-staff messaging, grades & attendance tracking, and push announcements.</p>
+        <div class="app-features"><span>Schedules</span><span>Messaging</span><span>Grades</span><span>Announcements</span></div>
+        <div class="app-card-bottom"><a href="app-school.html" class="btn btn-outline btn-sm">View Details →</a></div>
+      </div>
+      <div class="app-card fade-in">
+        <div class="app-card-top"><div class="app-card-info"><span class="app-type">Gym & Fitness</span><h3>Every member's fitness hub</h3></div><div class="app-price-badge"><div class="price-label">Floor</div><div class="price">$1.5k</div><div class="price-note">Min sell: $2,000</div></div></div>
+        <p class="app-desc">Digital membership with QR access, progress tracking, workout logs, class scheduling, and subscriptions.</p>
+        <div class="app-features"><span>QR membership</span><span>Workout logs</span><span>Booking</span><span>Subscriptions</span></div>
+        <div class="app-card-bottom"><a href="app-gym.html" class="btn btn-outline btn-sm">View Details →</a></div>
+      </div>
+      <div class="app-card fade-in">
+        <div class="app-card-top"><div class="app-card-info"><span class="app-type">Hotel & Hospitality</span><h3>The guest experience, reimagined</h3></div><div class="app-price-badge"><div class="price-label">Floor</div><div class="price">$3.5k</div><div class="price-note">Min sell: $4,000</div></div></div>
+        <p class="app-desc">Digital check-in/out, room service ordering, do not disturb, cleaning requests, problem reporting, hotel FAQ, and spa/massage booking.</p>
+        <div class="app-features"><span>Digital check-in</span><span>Room service</span><span>Service booking</span><span>Hotel FAQ</span></div>
+        <div class="app-card-bottom"><a href="app-hotel.html" class="btn btn-outline btn-sm">View Details →</a></div>
+      </div>
+      <div class="app-card app-card-custom fade-in">
+        <div class="app-card-info"><span class="app-type" style="color:var(--purple)">Custom App</span><h3>Client needs something unique?</h3><p class="app-desc">We build fully custom apps too. Send us the requirements — we'll scope it, quote a floor price, and you sell it your way.</p></div>
+        <div class="custom-cta"><button class="btn btn-purple" onclick="openPopup()">Inquire</button><small>Floor price quoted per project</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EARNINGS CALCULATOR -->
+<section class="section-pad" id="calculator">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Earnings Calculator</span>
+      <h2 class="section-title">See what you'd make</h2>
+      <p>Pick an app, set your selling price, and see your profit instantly.</p>
+    </div>
+    <div class="calc-wrap fade-in">
+      <div class="calc-select-row">
+        <div class="calc-field"><label>Choose an app</label>
+          <select id="calcApp" onchange="updateCalc()">
+            <option value="2500">Food Ordering & Delivery — $2,500 floor</option>
+            <option value="1000">Loyalty Program — $1,000 floor</option>
+            <option value="3000">E-Commerce — $3,000 floor</option>
+            <option value="3500">School — $3,500 floor</option>
+            <option value="1500">Gym & Fitness — $1,500 floor</option>
+            <option value="3500">Hotel & Hospitality — $3,500 floor</option>
+          </select>
+        </div>
+        <div class="calc-field"><label>Your selling price</label>
+          <div class="input-prefix"><input type="number" id="calcPrice" value="5000" min="0" max="99999" step="100" oninput="updateCalc()" /></div>
+        </div>
+      </div>
+      <div id="calcError" class="calc-error"></div>
+      <div class="calc-result" id="calcResult">
+        <div class="calc-result-item"><div class="cr-label">Floor (ours)</div><div class="cr-value cr-muted" id="crFloor">$2,000</div></div>
+        <div class="calc-result-item"><div class="cr-label">Your profit</div><div class="cr-value cr-accent" id="crYours">$1,500</div></div>
+        <div class="calc-result-item"><div class="cr-label">Our profit share</div><div class="cr-value cr-muted" id="crOurs">$1,500</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section-pad" id="compare">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Why Appshipping?</span>
+      <h2 class="section-title">Appshipping vs. the alternatives</h2>
+      <p>If you've heard of dropshipping or freelancing, here's why appshipping is a better play.</p>
+    </div>
+    <div class="compare-grid stagger-children">
+      <div class="compare-card fade-in"><h3>Dropshipping</h3><p class="compare-sub">Reselling physical products</p>
+        <ul class="compare-features">
+          <li><span class="cross">✕</span>Thin margins (10–30%)</li>
+          <li><span class="cross">✕</span>Shipping & returns headaches</li>
+          <li><span class="cross">✕</span>Upfront ad spend required</li>
+          <li><span class="cross">✕</span>Race to the bottom on price</li>
+          <li><span class="check">✓</span>No coding needed</li>
+          <li><span class="neutral">~</span>Moderate earning potential</li>
+        </ul>
+      </div>
+      <div class="compare-card featured fade-in"><h3>Appshipping</h3><p class="compare-sub">Selling mobile apps</p>
+        <ul class="compare-features">
+          <li><span class="check">✓</span>High margins ($250+ per deal)</li>
+          <li><span class="check">✓</span>No inventory or shipping</li>
+          <li><span class="check">✓</span>$0 upfront cost</li>
+          <li><span class="check">✓</span>Every deal is custom — no competition</li>
+          <li><span class="check">✓</span>No coding needed</li>
+          <li><span class="check">✓</span>Uncapped earning potential</li>
+        </ul>
+      </div>
+      <div class="compare-card fade-in"><h3>Freelancing</h3><p class="compare-sub">Selling your own skills</p>
+        <ul class="compare-features">
+          <li><span class="check">✓</span>Good margins</li>
+          <li><span class="check">✓</span>No inventory</li>
+          <li><span class="cross">✕</span>You need technical skills</li>
+          <li><span class="cross">✕</span>You do all the work</li>
+          <li><span class="cross">✕</span>Time-limited income</li>
+          <li><span class="neutral">~</span>High earning but burnout risk</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERBOARD -->
+<section class="section-pad" id="leaderboard">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Leaderboard</span>
+      <h2 class="section-title">Top sellers</h2>
+      <p>Our highest-performing appshippers this month. Your name could be here.</p>
+    </div>
+    <div class="leaderboard-table fade-in">
+      <div class="lb-row lb-header"><div>#</div><div>Seller</div><div>Deals closed</div><div class="lb-earned-col">Earned</div></div>
+      <div class="lb-row"><div class="lb-rank gold">01</div><div class="lb-name">Alex M.</div><div class="lb-deals">9 deals</div><div class="lb-earned lb-earned-col">$12,000</div></div>
+      <div class="lb-row"><div class="lb-rank silver">02</div><div class="lb-name">Sarah K.</div><div class="lb-deals">7 deals</div><div class="lb-earned lb-earned-col">$6,400</div></div>
+      <div class="lb-row"><div class="lb-rank bronze">03</div><div class="lb-name">James T.</div><div class="lb-deals">3 deals</div><div class="lb-earned lb-earned-col">$4,750</div></div>
+      <div class="lb-row"><div class="lb-rank">04</div><div class="lb-name">Maria L.</div><div class="lb-deals">5 deals</div><div class="lb-earned lb-earned-col">$4,200</div></div>
+      <div class="lb-row"><div class="lb-rank">05</div><div class="lb-name">David R.</div><div class="lb-deals">1 deal</div><div class="lb-earned lb-earned-col">$3,500</div></div>
+    </div>
+    <p class="lb-note">Updated monthly · Leaderboard goes live once sellers start closing deals</p>
+  </div>
+</section>
+
+<!-- LIST YOUR APP TEASER -->
+<section class="section-pad">
+  <div class="container">
+    <div class="list-teaser fade-in">
+      <div class="list-teaser-text">
+        <span class="badge badge-purple">For Developers</span>
+        <h3>Build apps? Let us sell them for you.</h3>
+        <p>If you're a developer or agency with apps you've built, list them on Appshipping. Our network of sellers will find clients for you — you just build. We take 10%, the rest is yours.</p>
+      </div>
+      <a href="list-your-app.html" class="btn btn-purple btn-large">List Your App →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-pad" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Questions? Answered.</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I need technical skills? <span class="arrow">+</span></div><div class="faq-a"><p>Not at all. We handle all design, development, testing, and deployment. Your job is finding clients and closing deals.</p></div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How do I get paid? <span class="arrow">+</span></div><div class="faq-a"><p>Clients pay 50% upfront and 50% on delivery. You get your 50% share of the profit from each payment as it comes in — so you earn the moment you close the deal.</p></div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Is there a contract? <span class="arrow">+</span></div><div class="faq-a"><p>Yes. We sign a partnership agreement before you start selling. It covers pricing, payment terms, and responsibilities — protecting both sides.</p></div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I sell to anyone, anywhere? <span class="arrow">+</span></div><div class="faq-a"><p>Yes. No geographic restrictions. Any business that needs a mobile app is a potential client.</p></div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What's the minimum I can earn per deal? <span class="arrow">+</span></div><div class="faq-a"><p>Since you must sell at least $500 above the floor and the split is 50/50, your minimum is $250 per deal. Most sellers earn significantly more.</p></div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How long does delivery take? <span class="arrow">+</span></div><div class="faq-a"><p>Most apps are built, tested, and live on both App Store and Google Play within 30 days of the client approving the design.</p></div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What if the client wants custom features? <span class="arrow">+</span></div><div class="faq-a"><p>Send us the requirements, we'll adjust the floor price accordingly, and you sell at your margin.</p></div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What about ongoing support? <span class="arrow">+</span></div><div class="faq-a"><p>We offer hosting and maintenance plans to clients after launch. This is handled and priced separately — you can offer it as an upsell.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-pad">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <span class="badge">Zero Risk</span>
+      <h2>Ready to start appshipping?</h2>
+      <p>No upfront cost. No inventory. No technical skills. Just find clients, close deals, and earn.</p>
+      <button class="btn btn-accent btn-large" onclick="openPopup()">Apply Now →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2025 Appshipping by MoaIT. All rights reserved.</p>
+    <div style="display:flex;gap:20px;align-items:center;">
+      <a href="careers.html">Careers</a>
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="mailto:hello@moa-it.me">hello@moa-it.me</a>
+    </div>
+  </div>
+</footer>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <span class="badge">Join Appshipping</span>
+    <h2>Start selling apps</h2>
+    <p>Fill in your details and we'll get back to you within 24 hours.</p>
+    <div class="popup-form">
+      <div class="popup-row">
+        <div class="popup-field"><label>Full name *</label><input type="text" placeholder="John Smith" required /></div>
+        <div class="popup-field"><label>Email *</label><input type="email" placeholder="john@email.com" required /></div>
+      </div>
+      <div class="popup-row">
+        <div class="popup-field"><label>Phone <span>(optional)</span></label><input type="tel" placeholder="+1 234 567 890" /></div>
+        <div class="popup-field"><label>Country *</label><select class="country-select" required><option value="">Select your country</option></select></div>
+      </div>
+      <div class="popup-field"><label>Do you have sales experience? *</label>
+        <select required>
+          <option value="">Select one</option>
+          <option>Yes — I've sold products or services before</option>
+          <option>Yes — I work in sales professionally</option>
+          <option>Some — I've done freelance or side projects</option>
+          <option>No — but I'm eager to learn</option>
+        </select>
+      </div>
+      <div class="popup-field"><label>How did you hear about Appshipping? *</label>
+        <select required>
+          <option value="">Select one</option>
+          <option>TikTok</option>
+          <option>YouTube</option>
+          <option>Instagram</option>
+          <option>Facebook</option>
+          <option>Twitter / X</option>
+          <option>Google Search</option>
+          <option>A friend or colleague</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="popup-field"><label>Tell us about yourself *</label><textarea placeholder="What industries would you target? Why do you want to join Appshipping?" rows="3" required></textarea></div>
+      <div class="popup-field">
+        <div class="terms-check">
+          <input type="checkbox" id="termsCheck" required />
+          <label for="termsCheck">I have read and agree to the <a href="terms.html" target="_blank">Terms & Conditions</a></label>
+        </div>
+        <p class="terms-note">Please read the terms before applying.</p>
+      </div>
+      <button class="btn btn-accent btn-large popup-submit" onclick="submitForm()">Apply Now</button>
+      <p class="popup-note">No commitment · We'll reply within 24h</p>
+    </div>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+<script>
+function updateCalc() {
+  const floor = parseInt(document.getElementById('calcApp').value);
+  let sell = parseInt(document.getElementById('calcPrice').value) || 0;
+  if (sell > 99999) {
+    sell = 99999;
+    document.getElementById('calcPrice').value = 99999;
+  }
+  const minSell = floor + 500;
+  const error = document.getElementById('calcError');
+  const result = document.getElementById('calcResult');
+  if (sell < minSell) {
+    error.style.display = 'block';
+    error.textContent = '⚠ Minimum selling price is $' + minSell.toLocaleString() + ' ($500 above the $' + floor.toLocaleString() + ' floor).';
+    result.style.opacity = '0.3';
+  } else {
+    error.style.display = 'none';
+    result.style.opacity = '1';
+  }
+  const profit = Math.max(0, sell - floor);
+  const yours = Math.round(profit / 2);
+  const ours = profit - yours;
+  document.getElementById('crFloor').textContent = '$' + floor.toLocaleString();
+  document.getElementById('crYours').textContent = '$' + yours.toLocaleString();
+  document.getElementById('crOurs').textContent = '$' + ours.toLocaleString();
+}
+updateCalc();
+</script>
+</body>
+</html>

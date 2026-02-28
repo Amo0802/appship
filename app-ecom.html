@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerce App — Appshipping</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="app-detail.css" />
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a class="nav-brand" href="index.html">App<span>shipping</span></a>
+  <ul class="nav-links"><li><a href="index.html#how">How It Works</a></li><li><a href="index.html#apps">Apps</a></li><li><a href="index.html#calculator">Earnings</a></li><li><a href="list-your-app.html">For Developers</a></li><li><a href="careers.html">Careers</a></li></ul>
+  <div class="nav-cta"><a href="#" class="btn btn-accent btn-sm" onclick="openPopup(); return false;">Start Selling</a></div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#how">How It Works</a><a href="index.html#apps">Apps</a><a href="index.html#calculator">Earnings</a><a href="list-your-app.html">For Developers</a><a href="careers.html">Careers</a>
+  <button class="btn btn-accent" onclick="openPopup()">Start Selling</button>
+</div>
+
+<section class="detail-hero">
+  <div class="container">
+    <div class="detail-hero-inner">
+      <div class="detail-hero-text">
+        <a href="index.html#apps" class="back-link">← Back to all apps</a>
+        <span class="badge">E-Commerce</span>
+        <h1>A store in their pocket</h1>
+        <p class="subtitle">A fully native shopping experience that outperforms any mobile website. From product discovery to checkout, every step is optimized for conversion. Perfect for clothing brands, retailers, and online stores.</p>
+        <div class="detail-price-row">
+          <div class="detail-price-item"><div class="dp-label">Floor price</div><div class="dp-value">$3,000</div></div>
+          <div class="detail-price-item"><div class="dp-label">Min selling price</div><div class="dp-value muted">$3,500</div></div>
+          <div class="detail-price-item"><div class="dp-label">Platform</div><div class="dp-value muted">iOS & Android</div></div>
+        </div>
+        <button class="btn btn-accent btn-large" onclick="openPopup()">Start Selling This App →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="detail-section">
+  <div class="container">
+    <div class="detail-row">
+      <div class="detail-row-text">
+        <span class="section-label">Screen 1</span>
+        <h2>Product catalog Full menu with categories & modifiers discovery</h2>
+        <p>Placeholder description — replace with your own text describing the first screen. Explain how the menu is organized, how categories work, and how customers can customize their orders with modifiers and special requests.</p>
+        <ul class="detail-features">
+          <li>Search, filters, and collections</li>
+          <li>Product variants and sizing</li>
+          <li>Wishlist functionality</li>
+          <li>Product image galleries</li>
+        </ul>
+      </div>
+      <div class="detail-row-visual detail-phone-wrap">
+        <div class="detail-phone"><div class="phone-placeholder pp-ecom">Screenshot 1<br>Product Catalog<br><br>Replace with your image</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="detail-section">
+  <div class="container">
+    <div class="detail-row reverse">
+      <div class="detail-row-text">
+        <span class="section-label">Screen 2</span>
+        <h2>Cart Seamless checkout & payments secure checkout</h2>
+        <p>Placeholder description — replace with your own text about the checkout experience. Cover how Apple Pay, Google Pay, and card payments work, and how the ordering flow is optimized for speed and conversion.</p>
+        <ul class="detail-features">
+          <li>Apple Pay Apple Pay & Google Pay Google Pay</li>
+          <li>Saved addresses Saved payment methods cards</li>
+          <li>Cart persistence</li>
+          <li>Discount codes</li>
+        </ul>
+      </div>
+      <div class="detail-row-visual detail-phone-wrap">
+        <div class="detail-phone"><div class="phone-placeholder pp-ecom">Screenshot 2<br>Shopping Cart<br><br>Replace with your image</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="detail-section">
+  <div class="container">
+    <div class="detail-row">
+      <div class="detail-row-text">
+        <span class="section-label">Screen 3</span>
+        <h2>Order tracking Real-time order tracking delivery</h2>
+        <p>Placeholder description — replace with your own text about order status and notifications. Describe how customers get live updates on their order progress and estimated pickup/delivery times.</p>
+        <ul class="detail-features">
+          <li>Live shipment tracking</li>
+          <li>Dispatch Push notifications at each stage delivery alerts</li>
+          <li>Return request flow</li>
+          <li>Delivery address management</li>
+        </ul>
+      </div>
+      <div class="detail-row-visual detail-phone-wrap">
+        <div class="detail-phone"><div class="phone-placeholder pp-ecom">Screenshot 3<br>Delivery Tracking<br><br>Replace with your image</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="detail-cta">
+  <div class="container">
+    <h2>Ready to sell this app?</h2>
+    <p>Floor price: $3,000 · Min sell: $3,500 · Your minimum profit: $250 per deal</p>
+    <button class="btn btn-accent btn-large" onclick="openPopup()">Apply Now →</button>
+  </div>
+</section>
+
+<footer><div class="footer-inner"><p>© 2025 Appshipping by MoaIT</p><div style="display:flex;gap:20px;align-items:center;"><a href="careers.html">Careers</a><a href="terms.html">Terms</a><a href="mailto:hello@moa-it.me">hello@moa-it.me</a></div></div></footer>
+
+<div class="popup-overlay" id="popupOverlay"><div class="popup">
+  <button class="popup-close" onclick="closePopup()">✕</button>
+  <span class="badge">Join Appshipping</span><h2>Start selling apps</h2><p>Fill in your details and we'll get back to you within 24 hours.</p>
+  <div class="popup-form">
+    <div class="popup-row"><div class="popup-field"><label>Full name *</label><input type="text" placeholder="John Smith" required /></div><div class="popup-field"><label>Email *</label><input type="email" placeholder="john@email.com" required /></div></div>
+    <div class="popup-row"><div class="popup-field"><label>Phone <span>(optional)</span></label><input type="tel" placeholder="+1 234 567 890" /></div><div class="popup-field"><label>Country *</label><select class="country-select" required><option value="">Select your country</option></select></div></div>
+    <div class="popup-field"><label>Do you have sales experience? *</label><select required><option value="">Select one</option><option>Yes — I've sold products or services before</option><option>Yes — I work in sales professionally</option><option>Some — I've done freelance or side projects</option><option>No — but I'm eager to learn</option></select></div>
+    <div class="popup-field"><label>How did you hear about Appshipping? *</label><select required><option value="">Select one</option><option>TikTok</option><option>YouTube</option><option>Instagram</option><option>Facebook</option><option>Twitter / X</option><option>Google Search</option><option>A friend or colleague</option><option>Other</option></select></div>
+    <div class="popup-field"><label>Tell us about yourself *</label><textarea placeholder="What industries would you target? Why do you want to join Appshipping?" rows="3" required></textarea></div>
+    <div class="popup-field"><div class="terms-check"><input type="checkbox" id="termsCheck" required /><label for="termsCheck">I have read and agree to the <a href="terms.html" target="_blank">Terms & Conditions</a></label></div><p class="terms-note">Please read the terms before applying.</p></div>
+    <button class="btn btn-accent btn-large popup-submit" onclick="submitForm()">Apply Now</button>
+    <p class="popup-note">No commitment · We'll reply within 24h</p>
+  </div>
+</div></div>
+
+<script src="shared.js"></script>
+</body></html>
