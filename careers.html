@@ -281,7 +281,7 @@
 <div class="popup-overlay" id="popupOverlay"><div class="popup">
   <button class="popup-close" onclick="closePopup()">✕</button>
   <span class="badge">Apply</span>
-  <h2 id="popupTitle">Apply for this position</h2>
+  <h2>Join the Appshipping team</h2>
   <p>Send us your details and CV. All fields marked * are required.</p>
   <div class="popup-form">
     <div class="popup-row"><div class="popup-field"><label>Full name *</label><input type="text" placeholder="John Smith" required /></div><div class="popup-field"><label>Email *</label><input type="email" placeholder="john@email.com" required /></div></div>
@@ -300,9 +300,8 @@
     <div class="popup-field"><label>Portfolio / LinkedIn / GitHub <span>(optional)</span></label><input type="url" placeholder="https://..." /></div>
     <div class="popup-field"><label>Resume / CV * <span>(PDF, DOC, or DOCX — max 5MB)</span></label><div class="file-input-wrap"><input type="file" accept=".pdf,.doc,.docx" required /></div></div>
     <div class="popup-field"><label>Cover message *</label><textarea placeholder="Relevant experience, what excites you about this role, anything you'd like us to know..." rows="3" required></textarea></div>
-    <div class="popup-field"><div class="terms-check"><input type="checkbox" id="termsCheck" required /><label for="termsCheck">I have read and agree to the <a href="terms.html" target="_blank">Terms & Conditions</a></label></div><p class="terms-note">Please read the terms before applying.</p></div>
     <button class="btn btn-accent btn-large popup-submit" onclick="submitCareerForm()">Submit Application</button>
-    <p class="popup-note">We'll review and respond within 48 hours</p>
+    <p class="popup-note">We'll review and respond within 72 hours</p>
   </div>
 </div></div>
 
@@ -312,7 +311,6 @@ function openPopup(position) {
   document.getElementById('popupOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
   if (position) {
-    document.getElementById('popupTitle').textContent = 'Apply — ' + position;
     const sel = document.getElementById('positionSelect');
     for (let i = 0; i < sel.options.length; i++) {
       if (sel.options[i].text.includes(position) || sel.options[i].text === position) {
@@ -326,7 +324,7 @@ function submitCareerForm() {
   const form = document.querySelector('#popupOverlay .popup-form');
   if (!validateForm(form)) return;
   // TODO: Wire up to your VPS backend — file upload needs multipart/form-data
-  alert("Thanks for applying! We'll review your application and get back to you within 48 hours.");
+  alert("Thanks for applying! We'll review your application and get back to you within 72 hours.");
   closePopup();
 }
 </script>

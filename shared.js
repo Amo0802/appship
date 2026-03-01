@@ -95,14 +95,14 @@ function submitForm() {
   const form = document.querySelector('#popupOverlay .popup-form');
   if (!validateForm(form)) return;
   // TODO: Wire up to your VPS backend to send email
-  alert("Thanks for applying! We'll be in touch within 24 hours.");
+  alert("Thanks for applying! We'll be in touch within 72 hours.");
   closePopup();
 }
 
 function submitDevForm() {
   const form = document.querySelector('#popupOverlay .popup-form');
   if (!validateForm(form)) return;
-  alert("Thanks! We'll review your app and get back to you within 48 hours.");
+  alert("Thanks! We'll review your app and get back to you within 72 hours.");
   closePopup();
 }
 
