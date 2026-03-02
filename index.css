@@ -21,18 +21,18 @@
 
 .hero-visual { position:relative; display:flex; align-items:center; justify-content:center; height:520px; }
 .hero-phone { position:absolute; border-radius:28px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.06); }
-.hero-phone img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+.hero-phone img { width:100%; height:100%; object-fit:contain; object-position:top center; display:block; }
 .phone-placeholder { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; font-size:0.7rem; font-weight:600; color:rgba(255,255,255,0.3); text-transform:uppercase; letter-spacing:0.1em; }
 .pp-food { background:linear-gradient(145deg,#1a1520,#2d1f3a,#1a1520); }
 .pp-loyalty { background:linear-gradient(145deg,#151a20,#1f2d3a,#151a20); }
 .pp-ecom { background:linear-gradient(145deg,#1a2015,#2d3a1f,#1a2015); }
 .pp-school { background:linear-gradient(145deg,#201a15,#3a2d1f,#201a15); }
 .pp-gym { background:linear-gradient(145deg,#15151a,#1f1f3a,#15151a); }
-.hero-phone:nth-child(1) { width:180px; height:380px; z-index:1; transform:translateX(-110%) rotate(-6deg); opacity:0.5; }
-.hero-phone:nth-child(2) { width:195px; height:410px; z-index:2; transform:translateX(-55%) rotate(-3deg); opacity:0.8; }
-.hero-phone:nth-child(3) { width:210px; height:440px; z-index:3; }
-.hero-phone:nth-child(4) { width:195px; height:410px; z-index:2; transform:translateX(55%) rotate(3deg); opacity:0.8; }
-.hero-phone:nth-child(5) { width:180px; height:380px; z-index:1; transform:translateX(110%) rotate(6deg); opacity:0.5; }
+.hero-phone:nth-child(1) { width:196.5px; height:426px; z-index:1; transform:translateX(-110%) rotate(-6deg); opacity:0.5; }
+.hero-phone:nth-child(2) { width:196.5px; height:426px; z-index:2; transform:translateX(-55%) rotate(-3deg); opacity:0.8; }
+.hero-phone:nth-child(3) { width:196.5px; height:426px; z-index:3; }
+.hero-phone:nth-child(4) { width:196.5px; height:426px; z-index:2; transform:translateX(55%) rotate(3deg); opacity:0.8; }
+.hero-phone:nth-child(5) { width:196.5px; height:426px; z-index:1; transform:translateX(110%) rotate(6deg); opacity:0.5; }
 
 /* ── SECTION PAD ── */
 .section-pad { padding:100px 0; position:relative; }
