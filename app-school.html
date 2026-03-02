@@ -1,136 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>School App — Appshipping</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="app-detail.css" />
 </head>
+
 <body>
-<nav><div class="nav-inner">
-  <a class="nav-brand" href="index.html">App<span>shipping</span></a>
-  <ul class="nav-links"><li><a href="index.html#how">How It Works</a></li><li><a href="index.html#apps">Apps</a></li><li><a href="index.html#calculator">Earnings</a></li><li><a href="list-your-app.html">For Developers</a></li><li><a href="careers.html">Careers</a></li></ul>
-  <div class="nav-cta"><a href="#" class="btn btn-accent btn-sm" onclick="openPopup(); return false;">Start Selling</a></div>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-</div></nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#how">How It Works</a><a href="index.html#apps">Apps</a><a href="index.html#calculator">Earnings</a><a href="list-your-app.html">For Developers</a><a href="careers.html">Careers</a>
-  <button class="btn btn-accent" onclick="openPopup()">Start Selling</button>
-</div>
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">App<span>shipping</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#how">How It Works</a></li>
+        <li><a href="index.html#apps">Apps</a></li>
+        <li><a href="index.html#calculator">Earnings</a></li>
+        <li><a href="list-your-app.html">For Developers</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+      <div class="nav-cta"><a href="#" class="btn btn-accent btn-sm" onclick="openPopup(); return false;">Start
+          Selling</a></div>
+      <button class="hamburger" onclick="toggleMenu()"
+        aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#how">How It Works</a><a href="index.html#apps">Apps</a><a
+      href="index.html#calculator">Earnings</a><a href="list-your-app.html">For Developers</a><a
+      href="careers.html">Careers</a>
+    <button class="btn btn-accent" onclick="openPopup()">Start Selling</button>
+  </div>
 
-<section class="detail-hero">
-  <div class="container">
-    <div class="detail-hero-inner">
-      <div class="detail-hero-text">
-        <a href="index.html#apps" class="back-link">&#8592; Back to all apps</a>
-        <span class="badge">School</span>
-        <h1>Connect the whole school</h1>
-        <p class="subtitle">A multi-role platform for administrators, teachers, students, and parents. Schedules, grades, QR attendance, class materials, test notifications, parent meetings, and more — everything a modern school needs in one branded app.</p>
-        <div class="detail-price-row">
-          <div class="detail-price-item"><div class="dp-label">Floor price</div><div class="dp-value">$3,500</div></div>
-          <div class="detail-price-item"><div class="dp-label">Min selling price</div><div class="dp-value muted">$4,000</div></div>
-          <div class="detail-price-item"><div class="dp-label">Platform</div><div class="dp-value muted">iOS & Android</div></div>
+  <section class="detail-hero">
+    <div class="container">
+      <div class="detail-hero-inner">
+        <div class="detail-hero-text">
+          <a href="index.html#apps" class="back-link">&#8592; Back to all apps</a>
+          <span class="badge">School</span>
+          <h1>Connect the whole school</h1>
+          <p class="subtitle">A multi-role platform for administrators, teachers, students, and parents. Schedules,
+            grades, QR attendance, class materials, test notifications, parent meetings, and more — everything a modern
+            school needs in one branded app.</p>
+          <div class="detail-price-row">
+            <div class="detail-price-item">
+              <div class="dp-label">Floor price</div>
+              <div class="dp-value">$3,500</div>
+            </div>
+            <div class="detail-price-item">
+              <div class="dp-label">Min selling price</div>
+              <div class="dp-value muted">$4,000</div>
+            </div>
+            <div class="detail-price-item">
+              <div class="dp-label">Platform</div>
+              <div class="dp-value muted">iOS & Android</div>
+            </div>
+          </div>
+          <button class="btn btn-accent btn-large" onclick="openPopup()">Start Selling This App</button>
         </div>
-        <button class="btn btn-accent btn-large" onclick="openPopup()">Start Selling This App</button>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="detail-section">
-  <div class="container">
-    <div class="detail-row">
-      <div class="detail-row-text">
-        <span class="section-label">Screen 1</span>
-        <h2>Multi-role dashboard</h2>
-        <p>Each user sees a personalized home screen based on their role. Students see upcoming classes, pending assignments, and recent grades. Teachers manage their schedule, input grades, and organize materials. Parents monitor their child's performance, attendance, and upcoming meetings. Admins oversee the entire system.</p>
-        <ul class="detail-features">
-          <li>Role-based access — admin, teacher, student, parent</li>
-          <li>Personalized dashboard per role</li>
-          <li>Quick access to schedule and grades</li>
-          <li>Notification center for announcements</li>
-          <li>School events and calendar</li>
-        </ul>
-      </div>
-      <div class="detail-row-visual detail-phone-wrap">
-        <div class="detail-phone"><img src="sch home.png" alt="Food app home screen" /></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="detail-section">
-  <div class="container">
-    <div class="detail-row reverse">
-      <div class="detail-row-text">
-        <span class="section-label">Screen 2</span>
-        <h2>Schedules, materials, and attendance</h2>
-        <p>Full class timetable for students and teachers with real-time updates for cancellations or room changes. Teachers upload class materials — PDFs, presentations, links — that students access directly in the app. Attendance is tracked via QR code: students scan at the start of each class, and absences are logged automatically.</p>
-        <ul class="detail-features">
-          <li>Interactive class timetable</li>
-          <li>Class material uploads and downloads</li>
-          <li>QR code attendance scanning</li>
-          <li>Automatic absence logging</li>
-          <li>Schedule change notifications</li>
-        </ul>
-      </div>
-      <div class="detail-row-visual detail-phone-wrap">
-        <div class="detail-phone"><img src="sch schedule.png" alt="Food app home screen" /></div>
-    </div>
-  </div>
-</section>
-
-<section class="detail-section">
-  <div class="container">
-    <div class="detail-row">
-      <div class="detail-row-text">
-        <span class="section-label">Screen 3</span>
-        <h2>Grades, tests, and parent portal</h2>
-        <p>Teachers input grades, test scores, and written feedback per student. Students see their results in real time with averages calculated per subject. Parents get a dedicated view showing their child's grades, attendance record, upcoming tests, scheduled meetings, and any disciplinary notes or warnings. Push notifications keep parents informed without needing to check the app constantly.</p>
-        <ul class="detail-features">
-          <li>Grade and test score management</li>
-          <li>Subject averages and performance trends</li>
-          <li>Test scheduling with student notifications</li>
-          <li>Parent view — grades, absences, warnings</li>
-          <li>Teacher-parent meeting scheduling</li>
-          <li>Disciplinary notes and penalty tracking</li>
-        </ul>
-      </div>
-      <div class="detail-row-visual detail-phone-wrap">
-        <div class="detail-phone"><img src="sch grades.png" alt="Food app home screen" /></div>
+  <section class="detail-section">
+    <div class="container">
+      <div class="detail-row">
+        <div class="detail-row-text">
+          <span class="section-label">Screen 1</span>
+          <h2>Multi-role dashboard</h2>
+          <p>Each user sees a personalized home screen based on their role. Students see upcoming classes, pending
+            assignments, and recent grades. Teachers manage their schedule, input grades, and organize materials.
+            Parents monitor their child's performance, attendance, and upcoming meetings. Admins oversee the entire
+            system.</p>
+          <ul class="detail-features">
+            <li>Role-based access — admin, teacher, student, parent</li>
+            <li>Personalized dashboard per role</li>
+            <li>Quick access to schedule and grades</li>
+            <li>Notification center for announcements</li>
+            <li>School events and calendar</li>
+          </ul>
+        </div>
+        <div class="detail-row-visual detail-phone-wrap">
+          <div class="detail-phone"><img src="sch home.png" alt="Food app home screen" /></div>
+        </div>
       </div>
     </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <div class="detail-row reverse">
+        <div class="detail-row-text">
+          <span class="section-label">Screen 2</span>
+          <h2>Schedules, materials, and attendance</h2>
+          <p>Full class timetable for students and teachers with real-time updates for cancellations or room changes.
+            Teachers upload class materials — PDFs, presentations, links — that students access directly in the app.
+            Attendance is tracked via QR code: students scan at the start of each class, and absences are logged
+            automatically.</p>
+          <ul class="detail-features">
+            <li>Interactive class timetable</li>
+            <li>Class material uploads and downloads</li>
+            <li>QR code attendance scanning</li>
+            <li>Automatic absence logging</li>
+            <li>Schedule change notifications</li>
+          </ul>
+        </div>
+        <div class="detail-row-visual detail-phone-wrap">
+          <div class="detail-phone"><img src="sch schedule.png" alt="Food app home screen" /></div>
+        </div>
+      </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <div class="detail-row">
+        <div class="detail-row-text">
+          <span class="section-label">Screen 3</span>
+          <h2>Grades, tests, and parent portal</h2>
+          <p>Teachers input grades, test scores, and written feedback per student. Students see their results in real
+            time with averages calculated per subject. Parents get a dedicated view showing their child's grades,
+            attendance record, upcoming tests, scheduled meetings, and any disciplinary notes or warnings. Push
+            notifications keep parents informed without needing to check the app constantly.</p>
+          <ul class="detail-features">
+            <li>Grade and test score management</li>
+            <li>Subject averages and performance trends</li>
+            <li>Test scheduling with student notifications</li>
+            <li>Parent view — grades, absences, warnings</li>
+            <li>Teacher-parent meeting scheduling</li>
+            <li>Disciplinary notes and penalty tracking</li>
+          </ul>
+        </div>
+        <div class="detail-row-visual detail-phone-wrap">
+          <div class="detail-phone"><img src="sch grades.png" alt="Food app home screen" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-cta">
+    <div class="container">
+      <h2>Ready to sell this app?</h2>
+      <p>Floor price: $3,500 · Min sell: $4,000 · Your minimum profit: $250 per deal</p>
+      <button class="btn btn-accent btn-large" onclick="openPopup()">Apply Now</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <p>&copy; 2025 Appshipping by MoaIT</p>
+      <div style="display:flex;gap:20px;align-items:center;"><a href="careers.html">Careers</a><a
+          href="terms.html">Terms & Conditions</a></div>
+    </div>
+  </footer>
+
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup" id="popupContent"></div>
   </div>
-</section>
 
-<section class="detail-cta">
-  <div class="container">
-    <h2>Ready to sell this app?</h2>
-    <p>Floor price: $3,500 · Min sell: $4,000 · Your minimum profit: $250 per deal</p>
-    <button class="btn btn-accent btn-large" onclick="openPopup()">Apply Now</button>
-  </div>
-</section>
+  <script>var FORM_TYPE = 'seller';</script>
+  <script src="shared.js"></script>
+  <script src="forms.js"></script>
+</body>
 
-<footer><div class="footer-inner"><p>&copy; 2025 Appshipping by MoaIT</p><div style="display:flex;gap:20px;align-items:center;"><a href="careers.html">Careers</a><a href="terms.html">Terms & Conditions</a></div></div></footer>
-
-<div class="popup-overlay" id="popupOverlay"><div class="popup">
-  <button class="popup-close" onclick="closePopup()">&#10005;</button>
-  <span class="badge">Join Appshipping</span><h2>Start selling apps</h2><p>Fill in your details and we'll get back to you within 72 hours.</p>
-  <div class="popup-form">
-    <div class="popup-row"><div class="popup-field"><label>Full name *</label><input type="text" placeholder="John Smith" required /></div><div class="popup-field"><label>Email *</label><input type="email" placeholder="john@email.com" required /></div></div>
-    <div class="popup-row"><div class="popup-field"><label>Phone <span>(optional)</span></label><input type="tel" placeholder="+1 234 567 890" /></div><div class="popup-field"><label>Country *</label><select class="country-select" required><option value="">Select your country</option></select></div></div>
-    <div class="popup-field"><label>Do you have sales experience? *</label><select required><option value="">Select one</option><option>Yes — I've sold products or services before</option><option>Yes — I work in sales professionally</option><option>Some — I've done freelance or side projects</option><option>No — but I'm eager to learn</option></select></div>
-    <div class="popup-field"><label>How did you hear about Appshipping? *</label><select required><option value="">Select one</option><option>TikTok</option><option>YouTube</option><option>Instagram</option><option>Facebook</option><option>Twitter / X</option><option>Google Search</option><option>A friend or colleague</option><option>Other</option></select></div>
-    <div class="popup-field"><label>Tell us about yourself *</label><textarea placeholder="What industries would you target? Why do you want to join Appshipping?" rows="3" required></textarea></div>
-    <div class="popup-field"><div class="terms-check"><input type="checkbox" id="termsCheck" required /><label for="termsCheck">I have read and agree to the <a href="terms.html" target="_blank">Terms &amp; Conditions</a></label></div><p class="terms-note">Please read the terms before applying.</p></div>
-    <button class="btn btn-accent btn-large popup-submit" onclick="submitForm()">Apply Now</button>
-    <p class="popup-note">No commitment · We'll reply within 72h</p>
-  </div>
-</div></div>
-
-<script src="shared.js"></script>
-</body></html>
+</html>

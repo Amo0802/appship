@@ -1,135 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gym & Fitness App — Appshipping</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="app-detail.css" />
 </head>
+
 <body>
-<nav><div class="nav-inner">
-  <a class="nav-brand" href="index.html">App<span>shipping</span></a>
-  <ul class="nav-links"><li><a href="index.html#how">How It Works</a></li><li><a href="index.html#apps">Apps</a></li><li><a href="index.html#calculator">Earnings</a></li><li><a href="list-your-app.html">For Developers</a></li><li><a href="careers.html">Careers</a></li></ul>
-  <div class="nav-cta"><a href="#" class="btn btn-accent btn-sm" onclick="openPopup(); return false;">Start Selling</a></div>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-</div></nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#how">How It Works</a><a href="index.html#apps">Apps</a><a href="index.html#calculator">Earnings</a><a href="list-your-app.html">For Developers</a><a href="careers.html">Careers</a>
-  <button class="btn btn-accent" onclick="openPopup()">Start Selling</button>
-</div>
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">App<span>shipping</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#how">How It Works</a></li>
+        <li><a href="index.html#apps">Apps</a></li>
+        <li><a href="index.html#calculator">Earnings</a></li>
+        <li><a href="list-your-app.html">For Developers</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+      <div class="nav-cta"><a href="#" class="btn btn-accent btn-sm" onclick="openPopup(); return false;">Start
+          Selling</a></div>
+      <button class="hamburger" onclick="toggleMenu()"
+        aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#how">How It Works</a><a href="index.html#apps">Apps</a><a
+      href="index.html#calculator">Earnings</a><a href="list-your-app.html">For Developers</a><a
+      href="careers.html">Careers</a>
+    <button class="btn btn-accent" onclick="openPopup()">Start Selling</button>
+  </div>
 
-<section class="detail-hero">
-  <div class="container">
-    <div class="detail-hero-inner">
-      <div class="detail-hero-text">
-        <a href="index.html#apps" class="back-link">&#8592; Back to all apps</a>
-        <span class="badge">Gym & Fitness</span>
-        <h1>Every member's fitness hub</h1>
-        <p class="subtitle">Give gym members a premium digital experience. Membership management, QR check-in, training session schedules, live occupancy, workout tracking, and detailed program info — all in one branded app. Perfect for gyms, studios, and fitness centers.</p>
-        <div class="detail-price-row">
-          <div class="detail-price-item"><div class="dp-label">Floor price</div><div class="dp-value">$1,500</div></div>
-          <div class="detail-price-item"><div class="dp-label">Min selling price</div><div class="dp-value muted">$2,000</div></div>
-          <div class="detail-price-item"><div class="dp-label">Platform</div><div class="dp-value muted">iOS & Android</div></div>
+  <section class="detail-hero">
+    <div class="container">
+      <div class="detail-hero-inner">
+        <div class="detail-hero-text">
+          <a href="index.html#apps" class="back-link">&#8592; Back to all apps</a>
+          <span class="badge">Gym & Fitness</span>
+          <h1>Every member's fitness hub</h1>
+          <p class="subtitle">Give gym members a premium digital experience. Membership management, QR check-in,
+            training session schedules, live occupancy, workout tracking, and detailed program info — all in one branded
+            app. Perfect for gyms, studios, and fitness centers.</p>
+          <div class="detail-price-row">
+            <div class="detail-price-item">
+              <div class="dp-label">Floor price</div>
+              <div class="dp-value">$1,500</div>
+            </div>
+            <div class="detail-price-item">
+              <div class="dp-label">Min selling price</div>
+              <div class="dp-value muted">$2,000</div>
+            </div>
+            <div class="detail-price-item">
+              <div class="dp-label">Platform</div>
+              <div class="dp-value muted">iOS & Android</div>
+            </div>
+          </div>
+          <button class="btn btn-accent btn-large" onclick="openPopup()">Start Selling This App</button>
         </div>
-        <button class="btn btn-accent btn-large" onclick="openPopup()">Start Selling This App</button>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="detail-section">
-  <div class="container">
-    <div class="detail-row">
-      <div class="detail-row-text">
-        <span class="section-label">Screen 1</span>
-        <h2>Membership and QR check-in</h2>
-        <p>Members see their active membership plan, renewal date, and payment status at a glance. QR code check-in replaces physical key cards — members scan at the door and they're in. The gym can track who's in the building and when, with full attendance history.</p>
-        <ul class="detail-features">
-          <li>Digital membership card with plan details</li>
-          <li>QR code gym check-in</li>
-          <li>Membership tier management</li>
-          <li>Attendance history</li>
-          <li>In-app membership payments</li>
-        </ul>
-      </div>
-      <div class="detail-row-visual detail-phone-wrap">
-        <div class="detail-phone"><img src="gym welcome.png" alt="Food app home screen" /></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="detail-section">
-  <div class="container">
-    <div class="detail-row reverse">
-      <div class="detail-row-text">
-        <span class="section-label">Screen 2</span>
-        <h2>Sessions, programs, and live occupancy</h2>
-        <p>Members browse all available training sessions — group classes like pilates and HIIT, individual personal training, and open gym slots. Each program shows its schedule, trainer, description, and available spots. The live occupancy feature shows how many people are currently in the gym so members can plan their visit.</p>
-        <ul class="detail-features">
-          <li>Group and individual session schedules</li>
-          <li>Program details — pilates, HIIT, personal training</li>
-          <li>Real-time gym occupancy counter</li>
-          <li>Trainer profiles and availability</li>
-          <li>Session booking and waitlists</li>
-        </ul>
-      </div>
-      <div class="detail-row-visual detail-phone-wrap">
-        <div class="detail-phone"><img src="gym home 2.png" alt="Food app home screen" /></div>
+  <section class="detail-section">
+    <div class="container">
+      <div class="detail-row">
+        <div class="detail-row-text">
+          <span class="section-label">Screen 1</span>
+          <h2>Membership and QR check-in</h2>
+          <p>Members see their active membership plan, renewal date, and payment status at a glance. QR code check-in
+            replaces physical key cards — members scan at the door and they're in. The gym can track who's in the
+            building and when, with full attendance history.</p>
+          <ul class="detail-features">
+            <li>Digital membership card with plan details</li>
+            <li>QR code gym check-in</li>
+            <li>Membership tier management</li>
+            <li>Attendance history</li>
+            <li>In-app membership payments</li>
+          </ul>
+        </div>
+        <div class="detail-row-visual detail-phone-wrap">
+          <div class="detail-phone"><img src="gym welcome.png" alt="Food app home screen" /></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="detail-section">
-  <div class="container">
-    <div class="detail-row">
-      <div class="detail-row-text">
-        <span class="section-label">Screen 3</span>
-        <h2>Workout tracking and progress</h2>
-        <p>Members log their workouts, track gym days, and monitor progress over time. Stats show total visits, streak days, workout frequency, and time spent per session. It's the kind of data that keeps members motivated and coming back — and gives the gym proof their app delivers real value.</p>
-        <ul class="detail-features">
-          <li>Workout session logging</li>
-          <li>Visit count and streak tracking</li>
-          <li>Time spent per session</li>
-          <li>Progress charts over time</li>
-          <li>Personal records and milestones</li>
-        </ul>
+  <section class="detail-section">
+    <div class="container">
+      <div class="detail-row reverse">
+        <div class="detail-row-text">
+          <span class="section-label">Screen 2</span>
+          <h2>Sessions, programs, and live occupancy</h2>
+          <p>Members browse all available training sessions — group classes like pilates and HIIT, individual personal
+            training, and open gym slots. Each program shows its schedule, trainer, description, and available spots.
+            The live occupancy feature shows how many people are currently in the gym so members can plan their visit.
+          </p>
+          <ul class="detail-features">
+            <li>Group and individual session schedules</li>
+            <li>Program details — pilates, HIIT, personal training</li>
+            <li>Real-time gym occupancy counter</li>
+            <li>Trainer profiles and availability</li>
+            <li>Session booking and waitlists</li>
+          </ul>
+        </div>
+        <div class="detail-row-visual detail-phone-wrap">
+          <div class="detail-phone"><img src="gym home 2.png" alt="Food app home screen" /></div>
+        </div>
       </div>
-      <div class="detail-row-visual detail-phone-wrap">
-<div class="detail-phone"><img src="gym 2.png" alt="Food app home screen" /></div>
     </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <div class="detail-row">
+        <div class="detail-row-text">
+          <span class="section-label">Screen 3</span>
+          <h2>Workout tracking and progress</h2>
+          <p>Members log their workouts, track gym days, and monitor progress over time. Stats show total visits, streak
+            days, workout frequency, and time spent per session. It's the kind of data that keeps members motivated and
+            coming back — and gives the gym proof their app delivers real value.</p>
+          <ul class="detail-features">
+            <li>Workout session logging</li>
+            <li>Visit count and streak tracking</li>
+            <li>Time spent per session</li>
+            <li>Progress charts over time</li>
+            <li>Personal records and milestones</li>
+          </ul>
+        </div>
+        <div class="detail-row-visual detail-phone-wrap">
+          <div class="detail-phone"><img src="gym 2.png" alt="Food app home screen" /></div>
+        </div>
+      </div>
+  </section>
+
+  <section class="detail-cta">
+    <div class="container">
+      <h2>Ready to sell this app?</h2>
+      <p>Floor price: $1,500 · Min sell: $2,000 · Your minimum profit: $250 per deal</p>
+      <button class="btn btn-accent btn-large" onclick="openPopup()">Apply Now</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <p>&copy; 2025 Appshipping by MoaIT</p>
+      <div style="display:flex;gap:20px;align-items:center;"><a href="careers.html">Careers</a><a
+          href="terms.html">Terms & Conditions</a></div>
+    </div>
+  </footer>
+
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup" id="popupContent"></div>
   </div>
-</section>
 
-<section class="detail-cta">
-  <div class="container">
-    <h2>Ready to sell this app?</h2>
-    <p>Floor price: $1,500 · Min sell: $2,000 · Your minimum profit: $250 per deal</p>
-    <button class="btn btn-accent btn-large" onclick="openPopup()">Apply Now</button>
-  </div>
-</section>
+  <script>var FORM_TYPE = 'seller';</script>
+  <script src="shared.js"></script>
+  <script src="forms.js"></script>
+</body>
 
-<footer><div class="footer-inner"><p>&copy; 2025 Appshipping by MoaIT</p><div style="display:flex;gap:20px;align-items:center;"><a href="careers.html">Careers</a><a href="terms.html">Terms & Conditions</a></div></div></footer>
-
-<div class="popup-overlay" id="popupOverlay"><div class="popup">
-  <button class="popup-close" onclick="closePopup()">&#10005;</button>
-  <span class="badge">Join Appshipping</span><h2>Start selling apps</h2><p>Fill in your details and we'll get back to you within 72 hours.</p>
-  <div class="popup-form">
-    <div class="popup-row"><div class="popup-field"><label>Full name *</label><input type="text" placeholder="John Smith" required /></div><div class="popup-field"><label>Email *</label><input type="email" placeholder="john@email.com" required /></div></div>
-    <div class="popup-row"><div class="popup-field"><label>Phone <span>(optional)</span></label><input type="tel" placeholder="+1 234 567 890" /></div><div class="popup-field"><label>Country *</label><select class="country-select" required><option value="">Select your country</option></select></div></div>
-    <div class="popup-field"><label>Do you have sales experience? *</label><select required><option value="">Select one</option><option>Yes — I've sold products or services before</option><option>Yes — I work in sales professionally</option><option>Some — I've done freelance or side projects</option><option>No — but I'm eager to learn</option></select></div>
-    <div class="popup-field"><label>How did you hear about Appshipping? *</label><select required><option value="">Select one</option><option>TikTok</option><option>YouTube</option><option>Instagram</option><option>Facebook</option><option>Twitter / X</option><option>Google Search</option><option>A friend or colleague</option><option>Other</option></select></div>
-    <div class="popup-field"><label>Tell us about yourself *</label><textarea placeholder="What industries would you target? Why do you want to join Appshipping?" rows="3" required></textarea></div>
-    <div class="popup-field"><div class="terms-check"><input type="checkbox" id="termsCheck" required /><label for="termsCheck">I have read and agree to the <a href="terms.html" target="_blank">Terms &amp; Conditions</a></label></div><p class="terms-note">Please read the terms before applying.</p></div>
-    <button class="btn btn-accent btn-large popup-submit" onclick="submitForm()">Apply Now</button>
-    <p class="popup-note">No commitment · We'll reply within 72h</p>
-  </div>
-</div></div>
-
-<script src="shared.js"></script>
-</body></html>
+</html>

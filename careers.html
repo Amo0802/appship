@@ -1,330 +1,557 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Careers — Appshipping</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-.careers-hero { padding:100px 0 60px; position:relative; overflow:hidden; text-align:center; }
-.careers-hero::before { content:''; position:absolute; top:-30%; left:50%; transform:translateX(-50%); width:800px; height:800px; border-radius:50%; background:radial-gradient(circle,rgba(196,248,42,0.07) 0%,transparent 70%); }
-.careers-hero-inner { position:relative; max-width:680px; margin:0 auto; }
-.careers-hero h1 { font-family:'Syne',sans-serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin-bottom:20px; }
-.careers-hero h1 .highlight { color:var(--accent); }
-.careers-hero .subtitle { font-size:1.05rem; line-height:1.7; color:var(--text-muted); max-width:520px; margin:0 auto 20px; }
+    .careers-hero {
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
 
-.careers-why { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; text-align:left; }
-.careers-why-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; transition:border-color 0.3s; }
-.careers-why-card:hover { border-color:rgba(196,248,42,0.15); }
-.careers-why-card .cw-icon, .careers-why-card .icon-box { margin-bottom:12px; }
-.careers-why-card h3 { font-family:'Syne',sans-serif; font-size:0.95rem; font-weight:700; margin-bottom:6px; }
-.careers-why-card p { font-size:0.82rem; line-height:1.6; color:var(--text-muted); }
+    .careers-hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196, 248, 42, 0.07) 0%, transparent 70%);
+    }
 
-.careers-section { padding:80px 0; position:relative; }
-.careers-section::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); }
-.careers-header { text-align:center; margin-bottom:56px; }
-.careers-header p { font-size:1rem; color:var(--text-muted); max-width:500px; margin:0 auto; line-height:1.7; }
+    .careers-hero-inner {
+      position: relative;
+      max-width: 680px;
+      margin: 0 auto;
+    }
 
-.positions-grid { display:flex; flex-direction:column; gap:16px; max-width:800px; margin:0 auto; }
+    .careers-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
 
-.position-card {
-  background:var(--surface); border:1px solid var(--border); border-radius:20px;
-  padding:36px; display:grid; grid-template-columns:1fr auto; align-items:center; gap:24px;
-  transition:border-color 0.3s, transform 0.2s;
-}
-.position-card:hover { border-color:rgba(196,248,42,0.15); transform:translateY(-2px); }
+    .careers-hero h1 .highlight {
+      color: var(--accent);
+    }
 
-.position-info .position-tags { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
-.position-tag {
-  font-size:0.62rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
-  padding:4px 10px; border-radius:10px;
-}
-.position-tag.dept-eng { color:var(--accent); background:var(--accent-dim); }
-.position-tag.dept-design { color:var(--purple); background:var(--purple-dim); }
-.position-tag.dept-ops { color:var(--orange); background:rgba(245,158,11,0.12); }
-.position-tag.type-ft { color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); }
-.position-tag.type-remote { color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); }
+    .careers-hero .subtitle {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 20px;
+    }
 
-.position-info h3 { font-family:'Syne',sans-serif; font-size:1.15rem; font-weight:700; letter-spacing:-0.02em; margin-bottom:8px; }
-.position-info p { font-size:0.85rem; line-height:1.6; color:var(--text-muted); max-width:480px; }
+    .careers-why {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+      text-align: left;
+    }
 
-.position-info .position-skills { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
-.position-info .position-skills span {
-  font-size:0.68rem; font-weight:500; color:rgba(255,255,255,0.45);
-  background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06);
-  border-radius:12px; padding:3px 10px;
-}
+    .careers-why-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.3s;
+    }
 
-.position-card .btn { flex-shrink:0; }
+    .careers-why-card:hover {
+      border-color: rgba(196, 248, 42, 0.15);
+    }
 
-/* ── Apply popup form extras ── */
-.popup-field select { appearance:auto; }
+    .careers-why-card .cw-icon,
+    .careers-why-card .icon-box {
+      margin-bottom: 12px;
+    }
 
-/* ── CTA ── */
-.careers-cta { padding:80px 0; text-align:center; }
-.careers-cta h2 { font-family:'Syne',sans-serif; font-size:clamp(1.8rem,3vw,2.5rem); font-weight:800; letter-spacing:-0.03em; margin-bottom:12px; }
-.careers-cta p { font-size:0.95rem; color:var(--text-muted); margin-bottom:32px; max-width:460px; margin-left:auto; margin-right:auto; line-height:1.6; }
+    .careers-why-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
 
-@media(max-width:960px) {
-  .careers-why { grid-template-columns:1fr; max-width:420px; margin:48px auto 0; }
-  .position-card { grid-template-columns:1fr; gap:16px; }
-  .position-card .btn { justify-self:start; }
-}
-@media(max-width:600px) {
-  .careers-hero { padding:60px 0 40px; }
-  .careers-section { padding:56px 0; }
-  .position-card { padding:28px 24px; }
-}
-  </style>
-</head>
-<body>
+    .careers-why-card p {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
 
-<nav><div class="nav-inner">
-  <a class="nav-brand" href="index.html">App<span>shipping</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html#how">How It Works</a></li>
-    <li><a href="index.html#apps">Apps</a></li>
-    <li><a href="index.html#calculator">Earnings</a></li>
-    <li><a href="list-your-app.html">For Developers</a></li>
-    <li><a href="careers.html" style="color:var(--accent)">Careers</a></li>
-  </ul>
-  <div class="nav-cta">
-    <a href="index.html" class="btn btn-outline btn-sm">Start Selling</a>
-    <a href="#positions" class="btn btn-accent btn-sm">View Openings</a>
-  </div>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
-</div></nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
-  <a href="index.html#apps">Apps</a>
-  <a href="list-your-app.html">For Developers</a>
-  <a href="careers.html">Careers</a>
-  <button class="btn btn-accent" onclick="openPopup()">Apply Now</button>
-</div>
+    .careers-section {
+      padding: 80px 0;
+      position: relative;
+    }
 
-<!-- HERO -->
-<section class="careers-hero">
-  <div class="container">
-    <div class="careers-hero-inner">
-      <span class="badge">We're Hiring</span>
-      <h1>Join early.<br>Grow with <span class="highlight">us.</span></h1>
-      <p class="subtitle">Appshipping is growing fast. We're looking for talented people who want to get in on the ground floor — build real products, shape the company, and grow as we scale.</p>
-      <a href="#positions" class="btn btn-accent btn-large">View Open Positions</a>
+    .careers-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
 
-      <div class="careers-why stagger-children">
-        <div class="careers-why-card fade-in">
-          <div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
-          <h3>Ground floor opportunity</h3>
-          <p>We're early-stage. The people who join now will shape how this company is built — your impact will be massive from day one.</p>
-        </div>
-        <div class="careers-why-card fade-in">
-          <div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-          <h3>Fully remote</h3>
-          <p>Work from anywhere. We care about what you deliver, not where you sit. Flexible hours, async communication.</p>
-        </div>
-        <div class="careers-why-card fade-in">
-          <div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-          <h3>Grow with the company</h3>
-          <p>As Appshipping scales, so does your role. Early team members will have first priority for leadership positions as we expand.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    .careers-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
 
-<!-- POSITIONS -->
-<section class="careers-section" id="positions">
-  <div class="container">
-    <div class="careers-header">
-      <span class="section-label">Open Positions</span>
-      <h2 class="section-title">Find your role</h2>
-      <p>We're building a small, focused team of people who are great at what they do. Here's what we need right now.</p>
-    </div>
+    .careers-header p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
 
-    <div class="positions-grid stagger-children">
+    .positions-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-      <!-- Mobile Developer -->
-      <div class="position-card fade-in">
-        <div class="position-info">
-          <div class="position-tags">
-            <span class="position-tag dept-eng">Engineering</span>
-            <span class="position-tag type-ft">Full-time</span>
-            <span class="position-tag type-remote">Remote</span>
-          </div>
-          <h3>Mobile Developer — Cross Platform</h3>
-          <p>Build and ship native-quality apps for iOS and Android using cross-platform frameworks. You'll work directly on client apps across multiple industries — food, fitness, e-commerce, education, hospitality, and more.</p>
-          <div class="position-skills">
-            <span>React Native</span>
-            <span>Flutter</span>
-            <span>iOS</span>
-            <span>Android</span>
-            <span>TypeScript</span>
-            <span>App Store deployment</span>
-          </div>
-        </div>
-        <button class="btn btn-accent" onclick="openPopup('Mobile Developer')">Apply</button>
-      </div>
+    .position-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      transition: border-color 0.3s, transform 0.2s;
+    }
 
-      <!-- Backend Developer -->
-      <div class="position-card fade-in">
-        <div class="position-info">
-          <div class="position-tags">
-            <span class="position-tag dept-eng">Engineering</span>
-            <span class="position-tag type-ft">Full-time</span>
-            <span class="position-tag type-remote">Remote</span>
-          </div>
-          <h3>Backend Developer — Go</h3>
-          <p>Design and build the APIs, databases, and infrastructure that power every app we ship. We prefer Go for its performance and simplicity, but we value strong engineering fundamentals above any single language.</p>
-          <div class="position-skills">
-            <span>Go</span>
-            <span>REST APIs</span>
-            <span>PostgreSQL</span>
-            <span>Docker</span>
-            <span>AWS / GCP</span>
-            <span>CI/CD</span>
-          </div>
-        </div>
-        <button class="btn btn-accent" onclick="openPopup('Backend Developer')">Apply</button>
-      </div>
+    .position-card:hover {
+      border-color: rgba(196, 248, 42, 0.15);
+      transform: translateY(-2px);
+    }
 
-      <!-- Designer -->
-      <div class="position-card fade-in">
-        <div class="position-info">
-          <div class="position-tags">
-            <span class="position-tag dept-design">Design</span>
-            <span class="position-tag type-ft">Full-time</span>
-            <span class="position-tag type-remote">Remote</span>
-          </div>
-          <h3>UI/UX Designer</h3>
-          <p>Design beautiful, intuitive mobile apps that clients love to show off and users love to use. You'll own the entire design process — from wireframes to pixel-perfect mockups — across a wide range of industries.</p>
-          <div class="position-skills">
-            <span>Figma</span>
-            <span>Mobile UI/UX</span>
-            <span>Design systems</span>
-            <span>Prototyping</span>
-            <span>iOS & Android guidelines</span>
-          </div>
-        </div>
-        <button class="btn btn-accent" onclick="openPopup('UI/UX Designer')">Apply</button>
-      </div>
+    .position-info .position-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
 
-      <!-- Project Manager -->
-      <div class="position-card fade-in">
-        <div class="position-info">
-          <div class="position-tags">
-            <span class="position-tag dept-ops">Operations</span>
-            <span class="position-tag type-ft">Full-time</span>
-            <span class="position-tag type-remote">Remote</span>
-          </div>
-          <h3>Project Manager</h3>
-          <p>Be the bridge between sellers, clients, and our dev team. You'll manage timelines, coordinate requirements, keep projects on track, and make sure every app ships on time and exceeds expectations.</p>
-          <div class="position-skills">
-            <span>Project management</span>
-            <span>Client communication</span>
-            <span>Agile / Scrum</span>
-            <span>Jira / Notion</span>
-            <span>Deadline management</span>
-          </div>
-        </div>
-        <button class="btn btn-accent" onclick="openPopup('Project Manager')">Apply</button>
-      </div>
+    .position-tag {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 10px;
+    }
 
-      <!-- QA / Tester -->
-      <div class="position-card fade-in">
-        <div class="position-info">
-          <div class="position-tags">
-            <span class="position-tag dept-eng">Engineering</span>
-            <span class="position-tag type-ft">Full-time / Part-time</span>
-            <span class="position-tag type-remote">Remote</span>
-          </div>
-          <h3>QA / Tester</h3>
-          <p>Make sure every app we ship is rock-solid. You'll test across devices, find edge cases, verify designs match implementation, and ensure a flawless experience before any app goes live.</p>
-          <div class="position-skills">
-            <span>Manual testing</span>
-            <span>Mobile testing (iOS & Android)</span>
-            <span>Bug reporting</span>
-            <span>Regression testing</span>
-            <span>Automation (bonus)</span>
-          </div>
-        </div>
-        <button class="btn btn-accent" onclick="openPopup('QA / Tester')">Apply</button>
-      </div>
+    .position-tag.dept-eng {
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
 
-    </div>
-  </div>
-</section>
+    .position-tag.dept-design {
+      color: var(--purple);
+      background: var(--purple-dim);
+    }
 
-<!-- CTA -->
-<section class="careers-cta">
-  <div class="container">
-    <div class="careers-header" style="margin-bottom:0;">
-      <h2 class="section-title">Don't see your role?</h2>
-      <p>We're always open to meeting talented people. Send us your CV and tell us how you'd contribute — if there's a fit, we'll make it work.</p>
-      <button class="btn btn-accent btn-large" onclick="openPopup('General Application')" style="margin-top:24px;">Send Your CV</button>
-    </div>
-  </div>
-</section>
+    .position-tag.dept-ops {
+      color: var(--orange);
+      background: rgba(245, 158, 11, 0.12);
+    }
 
-<footer><div class="footer-inner">
-  <p>© 2025 Appshipping by MoaIT. All rights reserved.</p>
-  <div style="display:flex;gap:20px;align-items:center;">
-    <a href="careers.html">Careers</a>
-    <a href="terms.html">Terms & Conditions</a>
-  </div>
-</div></footer>
+    .position-tag.type-ft {
+      color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
 
-<!-- APPLICATION POPUP -->
-<div class="popup-overlay" id="popupOverlay"><div class="popup">
-  <button class="popup-close" onclick="closePopup()">✕</button>
-  <span class="badge">Apply</span>
-  <h2>Join the Appshipping team</h2>
-  <p>Send us your details and CV. All fields marked * are required.</p>
-  <div class="popup-form">
-    <div class="popup-row"><div class="popup-field"><label>Full name *</label><input type="text" placeholder="John Smith" required /></div><div class="popup-field"><label>Email *</label><input type="email" placeholder="john@email.com" required /></div></div>
-    <div class="popup-row"><div class="popup-field"><label>Phone <span>(optional)</span></label><input type="tel" placeholder="+1 234 567 890" /></div><div class="popup-field"><label>Country *</label><select class="country-select" required><option value="">Select your country</option></select></div></div>
-    <div class="popup-field"><label>Position *</label>
-      <select id="positionSelect" required>
-        <option value="">Select a position</option>
-        <option>Mobile Developer — Cross Platform</option>
-        <option>Backend Developer — Go</option>
-        <option>UI/UX Designer</option>
-        <option>Project Manager</option>
-        <option>QA / Tester</option>
-        <option>General Application</option>
-      </select>
-    </div>
-    <div class="popup-field"><label>Portfolio / LinkedIn / GitHub <span>(optional)</span></label><input type="url" placeholder="https://..." /></div>
-    <div class="popup-field"><label>Resume / CV * <span>(PDF, DOC, or DOCX — max 5MB)</span></label><div class="file-input-wrap"><input type="file" accept=".pdf,.doc,.docx" required /></div></div>
-    <div class="popup-field"><label>Cover message *</label><textarea placeholder="Relevant experience, what excites you about this role, anything you'd like us to know..." rows="3" required></textarea></div>
-    <button class="btn btn-accent btn-large popup-submit" onclick="submitCareerForm()">Submit Application</button>
-    <p class="popup-note">We'll review and respond within 72 hours</p>
-  </div>
-</div></div>
+    .position-tag.type-remote {
+      color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
 
-<script src="shared.js"></script>
-<script>
-function openPopup(position) {
-  document.getElementById('popupOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  if (position) {
-    const sel = document.getElementById('positionSelect');
-    for (let i = 0; i < sel.options.length; i++) {
-      if (sel.options[i].text.includes(position) || sel.options[i].text === position) {
-        sel.selectedIndex = i;
-        break;
+    .position-info h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .position-info p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 480px;
+    }
+
+    .position-info .position-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .position-info .position-skills span {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 3px 10px;
+    }
+
+    .position-card .btn {
+      flex-shrink: 0;
+    }
+
+    /* ── Apply popup form extras ── */
+    .popup-field select {
+      appearance: auto;
+    }
+
+    /* ── CTA ── */
+    .careers-cta {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .careers-cta h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .careers-cta p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    @media(max-width:960px) {
+      .careers-why {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 48px auto 0;
+      }
+
+      .position-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .position-card .btn {
+        justify-self: start;
       }
     }
-  }
-}
-function submitCareerForm() {
-  const form = document.querySelector('#popupOverlay .popup-form');
-  if (!validateForm(form)) return;
-  // TODO: Wire up to your VPS backend — file upload needs multipart/form-data
-  alert("Thanks for applying! We'll review your application and get back to you within 72 hours.");
-  closePopup();
-}
-</script>
-</body></html>
+
+    @media(max-width:600px) {
+      .careers-hero {
+        padding: 60px 0 40px;
+      }
+
+      .careers-section {
+        padding: 56px 0;
+      }
+
+      .position-card {
+        padding: 28px 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">App<span>shipping</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#how">How It Works</a></li>
+        <li><a href="index.html#apps">Apps</a></li>
+        <li><a href="index.html#calculator">Earnings</a></li>
+        <li><a href="list-your-app.html">For Developers</a></li>
+        <li><a href="careers.html" style="color:var(--accent)">Careers</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html" class="btn btn-outline btn-sm">Start Selling</a>
+        <a href="#positions" class="btn btn-accent btn-sm">View Openings</a>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()"
+        aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="index.html#apps">Apps</a>
+    <a href="list-your-app.html">For Developers</a>
+    <a href="careers.html">Careers</a>
+    <button class="btn btn-accent" onclick="openPopup()">Apply Now</button>
+  </div>
+
+  <!-- HERO -->
+  <section class="careers-hero">
+    <div class="container">
+      <div class="careers-hero-inner">
+        <span class="badge">We're Hiring</span>
+        <h1>Join early.<br>Grow with <span class="highlight">us.</span></h1>
+        <p class="subtitle">Appshipping is growing fast. We're looking for talented people who want to get in on the
+          ground floor — build real products, shape the company, and grow as we scale.</p>
+        <a href="#positions" class="btn btn-accent btn-large">View Open Positions</a>
+
+        <div class="careers-why stagger-children">
+          <div class="careers-why-card fade-in">
+            <div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                <path
+                  d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+              </svg></div>
+            <h3>Ground floor opportunity</h3>
+            <p>We're early-stage. The people who join now will shape how this company is built — your impact will be
+              massive from day one.</p>
+          </div>
+          <div class="careers-why-card fade-in">
+            <div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg></div>
+            <h3>Fully remote</h3>
+            <p>Work from anywhere. We care about what you deliver, not where you sit. Flexible hours, async
+              communication.</p>
+          </div>
+          <div class="careers-why-card fade-in">
+            <div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg></div>
+            <h3>Grow with the company</h3>
+            <p>As Appshipping scales, so does your role. Early team members will have first priority for leadership
+              positions as we expand.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONS -->
+  <section class="careers-section" id="positions">
+    <div class="container">
+      <div class="careers-header">
+        <span class="section-label">Open Positions</span>
+        <h2 class="section-title">Find your role</h2>
+        <p>We're building a small, focused team of people who are great at what they do. Here's what we need right now.
+        </p>
+      </div>
+
+      <div class="positions-grid stagger-children">
+
+        <!-- Mobile Developer -->
+        <div class="position-card fade-in">
+          <div class="position-info">
+            <div class="position-tags">
+              <span class="position-tag dept-eng">Engineering</span>
+              <span class="position-tag type-ft">Full-time</span>
+              <span class="position-tag type-remote">Remote</span>
+            </div>
+            <h3>Mobile Developer — Cross Platform</h3>
+            <p>Build and ship native-quality apps for iOS and Android using cross-platform frameworks. You'll work
+              directly on client apps across multiple industries — food, fitness, e-commerce, education, hospitality,
+              and more.</p>
+            <div class="position-skills">
+              <span>React Native</span>
+              <span>Flutter</span>
+              <span>iOS</span>
+              <span>Android</span>
+              <span>TypeScript</span>
+              <span>App Store deployment</span>
+            </div>
+          </div>
+          <button class="btn btn-accent" onclick="openPopup('Mobile Developer')">Apply</button>
+        </div>
+
+        <!-- Backend Developer -->
+        <div class="position-card fade-in">
+          <div class="position-info">
+            <div class="position-tags">
+              <span class="position-tag dept-eng">Engineering</span>
+              <span class="position-tag type-ft">Full-time</span>
+              <span class="position-tag type-remote">Remote</span>
+            </div>
+            <h3>Backend Developer — Go</h3>
+            <p>Design and build the APIs, databases, and infrastructure that power every app we ship. We prefer Go for
+              its performance and simplicity, but we value strong engineering fundamentals above any single language.
+            </p>
+            <div class="position-skills">
+              <span>Go</span>
+              <span>REST APIs</span>
+              <span>PostgreSQL</span>
+              <span>Docker</span>
+              <span>AWS / GCP</span>
+              <span>CI/CD</span>
+            </div>
+          </div>
+          <button class="btn btn-accent" onclick="openPopup('Backend Developer')">Apply</button>
+        </div>
+
+        <!-- Designer -->
+        <div class="position-card fade-in">
+          <div class="position-info">
+            <div class="position-tags">
+              <span class="position-tag dept-design">Design</span>
+              <span class="position-tag type-ft">Full-time</span>
+              <span class="position-tag type-remote">Remote</span>
+            </div>
+            <h3>UI/UX Designer</h3>
+            <p>Design beautiful, intuitive mobile apps that clients love to show off and users love to use. You'll own
+              the entire design process — from wireframes to pixel-perfect mockups — across a wide range of industries.
+            </p>
+            <div class="position-skills">
+              <span>Figma</span>
+              <span>Mobile UI/UX</span>
+              <span>Design systems</span>
+              <span>Prototyping</span>
+              <span>iOS & Android guidelines</span>
+            </div>
+          </div>
+          <button class="btn btn-accent" onclick="openPopup('UI/UX Designer')">Apply</button>
+        </div>
+
+        <!-- Project Manager -->
+        <div class="position-card fade-in">
+          <div class="position-info">
+            <div class="position-tags">
+              <span class="position-tag dept-ops">Operations</span>
+              <span class="position-tag type-ft">Full-time</span>
+              <span class="position-tag type-remote">Remote</span>
+            </div>
+            <h3>Project Manager</h3>
+            <p>Be the bridge between sellers, clients, and our dev team. You'll manage timelines, coordinate
+              requirements, keep projects on track, and make sure every app ships on time and exceeds expectations.</p>
+            <div class="position-skills">
+              <span>Project management</span>
+              <span>Client communication</span>
+              <span>Agile / Scrum</span>
+              <span>Jira / Notion</span>
+              <span>Deadline management</span>
+            </div>
+          </div>
+          <button class="btn btn-accent" onclick="openPopup('Project Manager')">Apply</button>
+        </div>
+
+        <!-- QA / Tester -->
+        <div class="position-card fade-in">
+          <div class="position-info">
+            <div class="position-tags">
+              <span class="position-tag dept-eng">Engineering</span>
+              <span class="position-tag type-ft">Full-time / Part-time</span>
+              <span class="position-tag type-remote">Remote</span>
+            </div>
+            <h3>QA / Tester</h3>
+            <p>Make sure every app we ship is rock-solid. You'll test across devices, find edge cases, verify designs
+              match implementation, and ensure a flawless experience before any app goes live.</p>
+            <div class="position-skills">
+              <span>Manual testing</span>
+              <span>Mobile testing (iOS & Android)</span>
+              <span>Bug reporting</span>
+              <span>Regression testing</span>
+              <span>Automation (bonus)</span>
+            </div>
+          </div>
+          <button class="btn btn-accent" onclick="openPopup('QA / Tester')">Apply</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="careers-cta">
+    <div class="container">
+      <div class="careers-header" style="margin-bottom:0;">
+        <h2 class="section-title">Don't see your role?</h2>
+        <p>We're always open to meeting talented people. Send us your CV and tell us how you'd contribute — if there's a
+          fit, we'll make it work.</p>
+        <button class="btn btn-accent btn-large" onclick="openPopup('General Application')"
+          style="margin-top:24px;">Send Your CV</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2025 Appshipping by MoaIT. All rights reserved.</p>
+      <div style="display:flex;gap:20px;align-items:center;">
+        <a href="careers.html">Careers</a>
+        <a href="terms.html">Terms & Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- APPLICATION POPUP -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup" id="popupContent"></div>
+  </div>
+
+  <script>var FORM_TYPE = 'career';</script>
+  <script src="shared.js"></script>
+  <script src="forms.js"></script>
+  <script>
+    function openPopup(position) {
+      document.getElementById('popupOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (position) {
+        const sel = document.getElementById('positionSelect');
+        for (let i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].text.includes(position) || sel.options[i].text === position) {
+            sel.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+    function submitCareerForm() {
+      const form = document.querySelector('#popupOverlay .popup-form');
+      if (!validateForm(form)) return;
+      // TODO: Wire up to your VPS backend — file upload needs multipart/form-data
+      alert("Thanks for applying! We'll review your application and get back to you within 72 hours.");
+      closePopup();
+    }
+  </script>
+</body>
+
+</html>
