@@ -98,6 +98,26 @@ body {
   background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 
+
+/* ── SVG Icons ── */
+.icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-dim);
+  border: 1px solid rgba(196,248,42,0.12);
+}
+.icon-box svg { width: 22px; height: 22px; }
+.icon-box.purple {
+  background: var(--purple-dim);
+  border-color: rgba(139,92,246,0.12);
+}
+.icon-box.purple svg { stroke: var(--purple); }
+
 /* ── NAV ── */
 nav {
   position: sticky;
@@ -216,6 +236,19 @@ nav {
   transition: transform 0.25s;
 }
 .popup-overlay.open .popup { transform: translateY(0); }
+
+/* Custom scrollbar for popup */
+.popup::-webkit-scrollbar { width: 6px; }
+.popup::-webkit-scrollbar-track { background: transparent; margin: 24px 0; }
+.popup::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+.popup::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+/* Firefox */
+.popup { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.1) transparent; }
+
 
 .popup-close {
   position: absolute;

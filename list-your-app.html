@@ -24,7 +24,7 @@
 .dev-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:48px; }
 .dev-step { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:36px; text-align:center; transition:border-color 0.3s; }
 .dev-step:hover { border-color:rgba(139,92,246,0.2); }
-.dev-step .step-icon { font-size:2rem; margin-bottom:16px; }
+.dev-step .step-icon, .dev-step .icon-box { margin-bottom:16px; }
 .dev-step h3 { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:8px; }
 .dev-step p { font-size:0.85rem; line-height:1.6; color:var(--text-muted); }
 
@@ -81,7 +81,7 @@
       <h1>You build.<br>We <span class="highlight">sell.</span></h1>
       <p class="subtitle">List your app on Appshipping and let our network of sales agents find clients for you. Focus on what you do best — building — and we'll handle the sales.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <button class="btn btn-purple btn-large" onclick="openPopup()">List Your App →</button>
+        <button class="btn btn-purple btn-large" onclick="openPopup()">List Your App</button>
         <a href="#how-dev" class="btn btn-outline btn-large">How It Works</a>
       </div>
     </div>
@@ -97,9 +97,9 @@
       <p>Get your app in front of sellers who are actively looking for apps to pitch to businesses.</p>
     </div>
     <div class="dev-steps">
-      <div class="dev-step"><div class="step-icon">📲</div><h3>Submit your app</h3><p>Send us your app details — what it does, who it's for, screenshots, and your floor price (what you need to be paid).</p></div>
-      <div class="dev-step"><div class="step-icon">🔍</div><h3>We list & promote it</h3><p>We add 10% to your floor price to set the listed price. Our sellers see it and start pitching it to businesses in their network.</p></div>
-      <div class="dev-step"><div class="step-icon">💰</div><h3>Build, get paid</h3><p>When a seller closes a deal, you build the app for the client. You receive your full floor price plus 50% of everything sold above the listed price.</p></div>
+      <div class="dev-step"><div class="icon-box purple"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div><h3>Submit your app</h3><p>Send us your app details — what it does, who it's for, screenshots, and your floor price (what you need to be paid).</p></div>
+      <div class="dev-step"><div class="icon-box purple"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3>We list & promote it</h3><p>We add 10% to your floor price to set the listed price. Our sellers see it and start pitching it to businesses in their network.</p></div>
+      <div class="dev-step"><div class="icon-box purple"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><h3>Build, get paid</h3><p>When a seller closes a deal, you build the app for the client. You receive your full floor price plus 50% of everything sold above the listed price.</p></div>
     </div>
   </div>
 </section>
@@ -132,10 +132,10 @@
       <h2 class="section-title">Why list on Appshipping?</h2>
     </div>
     <div class="dev-benefits">
-      <div class="dev-benefit"><div class="b-icon">🌎</div><div><h4>Sales team without hiring one</h4><p>Our sellers actively pitch your app to businesses. You get clients without spending time or money on marketing.</p></div></div>
-      <div class="dev-benefit"><div class="b-icon">💸</div><div><h4>You set the floor price</h4><p>You decide the minimum you need per build. We add our 10% on top and sellers can only sell above that — so you always get what you need, plus a share of the upside.</p></div></div>
-      <div class="dev-benefit"><div class="b-icon">🔁</div><div><h4>Recurring builds</h4><p>Once your app is listed, sellers can keep selling it to new clients. One listing can generate dozens of builds over time.</p></div></div>
-      <div class="dev-benefit"><div class="b-icon">🛡️</div><div><h4>Contracts & protection</h4><p>Every deal is covered by a contract. Clear terms for delivery, payments, and expectations — no ambiguity.</p></div></div>
+      <div class="dev-benefit"><div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><h4>Sales team without hiring one</h4><p>Our sellers actively pitch your app to businesses. You get clients without spending time or money on marketing.</p></div></div>
+      <div class="dev-benefit"><div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><h4>You set the floor price</h4><p>You decide the minimum you need per build. We add our 10% on top and sellers can only sell above that — so you always get what you need, plus a share of the upside.</p></div></div>
+      <div class="dev-benefit"><div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><div><h4>Recurring builds</h4><p>Once your app is listed, sellers can keep selling it to new clients. One listing can generate dozens of builds over time.</p></div></div>
+      <div class="dev-benefit"><div class="b-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><div><h4>Contracts & protection</h4><p>Every deal is covered by a contract. Clear terms for delivery, payments, and expectations — no ambiguity.</p></div></div>
     </div>
   </div>
 </section>
@@ -145,11 +145,11 @@
   <div class="container">
     <h2>Ready to get clients<br>without the hustle?</h2>
     <p>Submit your app, set your price, and let our sellers do the rest.</p>
-    <button class="btn btn-purple btn-large" onclick="openPopup()">List Your App →</button>
+    <button class="btn btn-purple btn-large" onclick="openPopup()">List Your App</button>
   </div>
 </section>
 
-<footer><div class="footer-inner"><p>© 2025 Appshipping by MoaIT</p><div style="display:flex;gap:20px;align-items:center;"><a href="careers.html">Careers</a><a href="terms.html">Terms</a><a href="mailto:hello@moa-it.me">hello@moa-it.me</a></div></div></footer>
+<footer><div class="footer-inner"><p>© 2025 Appshipping by MoaIT</p><div style="display:flex;gap:20px;align-items:center;"><a href="careers.html">Careers</a><a href="terms.html">Terms & Conditions</a></div></div></footer>
 
 <!-- DEVELOPER POPUP -->
 <div class="popup-overlay" id="popupOverlay"><div class="popup">
