@@ -530,28 +530,7 @@
   <script>var FORM_TYPE = 'career';</script>
   <script src="shared.js"></script>
   <script src="forms.js"></script>
-  <script>
-    function openPopup(position) {
-      document.getElementById('popupOverlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
-      if (position) {
-        const sel = document.getElementById('positionSelect');
-        for (let i = 0; i < sel.options.length; i++) {
-          if (sel.options[i].text.includes(position) || sel.options[i].text === position) {
-            sel.selectedIndex = i;
-            break;
-          }
-        }
-      }
-    }
-    function submitCareerForm() {
-      const form = document.querySelector('#popupOverlay .popup-form');
-      if (!validateForm(form)) return;
-      // TODO: Wire up to your VPS backend — file upload needs multipart/form-data
-      alert("Thanks for applying! We'll review your application and get back to you within 72 hours.");
-      closePopup();
-    }
-  </script>
+  
 </body>
 
 </html>

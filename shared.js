@@ -27,99 +27,6 @@ document.querySelectorAll(".mobile-menu a").forEach((a) => {
   });
 });
 
-/* ── Popup ── */
-function openPopup() {
-  document.getElementById("popupOverlay")?.classList.add("open");
-  document.body.style.overflow = "hidden";
-}
-function closePopup() {
-  document.getElementById("popupOverlay")?.classList.remove("open");
-  document.body.style.overflow = "";
-  // Clear validation errors
-  document.querySelectorAll(".field-error").forEach((e) => e.remove());
-  document
-    .querySelectorAll(".popup-field.error")
-    .forEach((e) => e.classList.remove("error"));
-}
-document
-  .getElementById("popupOverlay")
-  ?.addEventListener("click", function (e) {
-    if (e.target === this) closePopup();
-  });
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closePopup();
-});
-
-/* ── Form validation ── */
-function validateForm(formEl) {
-  let valid = true;
-  // Clear previous errors
-  formEl.querySelectorAll(".field-error").forEach((e) => e.remove());
-  formEl
-    .querySelectorAll(".popup-field.error")
-    .forEach((e) => e.classList.remove("error"));
-
-  // Check all required inputs
-  formEl.querySelectorAll("[required]").forEach((input) => {
-    const field = input.closest(".popup-field");
-    let isEmpty = false;
-
-    if (input.type === "checkbox") {
-      isEmpty = !input.checked;
-    } else if (input.tagName === "SELECT") {
-      isEmpty = !input.value || input.value === "";
-    } else if (input.type === "file") {
-      isEmpty = input.files.length === 0;
-    } else {
-      isEmpty = !input.value.trim();
-    }
-
-    // Email format check
-    if (input.type === "email" && input.value.trim()) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(input.value.trim())) {
-        isEmpty = true;
-      }
-    }
-
-    if (isEmpty) {
-      valid = false;
-      if (field) {
-        field.classList.add("error");
-        if (!field.querySelector(".field-error")) {
-          const err = document.createElement("span");
-          err.className = "field-error";
-          err.textContent =
-            input.type === "checkbox"
-              ? "You must agree to continue"
-              : input.type === "email" && input.value.trim()
-                ? "Please enter a valid email"
-                : input.type === "file"
-                  ? "This file is required"
-                  : "This field is required";
-          field.appendChild(err);
-        }
-      }
-    }
-  });
-  return valid;
-}
-
-function submitForm() {
-  const form = document.querySelector("#popupOverlay .popup-form");
-  if (!validateForm(form)) return;
-  // TODO: Wire up to your VPS backend to send email
-  alert("Thanks for applying! We'll be in touch within 72 hours.");
-  closePopup();
-}
-
-function submitDevForm() {
-  const form = document.querySelector("#popupOverlay .popup-form");
-  if (!validateForm(form)) return;
-  alert("Thanks! We'll review your app and get back to you within 72 hours.");
-  closePopup();
-}
-
 /* ── FAQ toggle ── */
 function toggleFaq(el) {
   el.classList.toggle("open");
@@ -139,7 +46,7 @@ const fadeObserver = new IntersectionObserver(
 );
 document.querySelectorAll(".fade-in").forEach((el) => fadeObserver.observe(el));
 
-/* ── Country list (populate all selects with class .country-select) ── */
+/* ── Country list (used by forms.js when rendering forms) ── */
 const COUNTRIES = [
   "Afghanistan",
   "Albania",
@@ -295,14 +202,3 @@ const COUNTRIES = [
   "Zambia",
   "Zimbabwe",
 ];
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".country-select").forEach((sel) => {
-    COUNTRIES.forEach((c) => {
-      const opt = document.createElement("option");
-      opt.value = c;
-      opt.textContent = c;
-      sel.appendChild(opt);
-    });
-  });
-});
