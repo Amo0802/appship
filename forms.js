@@ -76,33 +76,45 @@ var FIELD_LIMITS = {
 
 /* ── Shared select options ── */
 var SALES_EXPERIENCE_OPTIONS = [
-  "Yes — I've sold products or services before",
-  "Yes — I work in sales professionally",
-  "Some — I've done freelance or side projects",
-  "No — but I'm eager to learn",
+  { value: "none", label: "No — but I'm eager to learn" },
+  { value: "beginner", label: "Some — I've done freelance or side projects" },
+  { value: "intermediate", label: "Yes — I've sold products or services before" },
+  { value: "advanced", label: "Yes — I work in sales professionally" },
 ];
 
 var REFERRAL_OPTIONS = [
-  "TikTok",
-  "YouTube",
-  "Instagram",
-  "Facebook",
-  "Twitter / X",
-  "Google Search",
-  "A friend or colleague",
-  "Other",
+  { value: "tiktok", label: "TikTok" },
+  { value: "youtube", label: "YouTube" },
+
+  // Option A (frontend-only, matches backend as-is): collapse to social_media
+  { value: "social_media", label: "Instagram" },
+  { value: "social_media", label: "Facebook" },
+  { value: "social_media", label: "Twitter / X" },
+
+  { value: "google", label: "Google Search" },
+  { value: "friend", label: "A friend or colleague" },
+  { value: "other", label: "Other" },
 ];
 
-var APPS_BUILT_OPTIONS = ["1–5 apps", "6–15 apps", "16–50 apps", "50+ apps"];
+var APPS_BUILT_OPTIONS = [
+  { value: "1-5", label: "1–5 apps" },
+  { value: "6-15", label: "6–15 apps" },
+  { value: "16-50", label: "16–50 apps" },
+  { value: "50+", label: "50+ apps" },
+];
 
 var POSITION_OPTIONS = [
-  "Mobile Developer — Cross Platform",
-  "Backend Developer — Go",
-  "UI/UX Designer",
-  "Project Manager",
-  "QA / Tester",
-  "General Application",
+  { value: "mobile_developer", label: "Mobile Developer — Cross Platform" },
+  { value: "backend_developer", label: "Backend Developer — Go" },
+  { value: "ui_ux_designer", label: "UI/UX Designer" },
+  { value: "project_manager", label: "Project Manager" },
+
+  // backend doesn’t have qa_tester, so map to general (unless you add qa_tester backend)
+  { value: "general", label: "QA / Tester" },
+
+  { value: "general", label: "General Application" },
 ];
+
 
 /* ── Form definitions ── */
 var FORM_DEFS = {
@@ -456,7 +468,11 @@ function buildField(f) {
       html += '<option value="">Select one</option>';
       if (f.options !== "__countries__") {
         f.options.forEach(function (opt) {
-          html += '<option value="' + opt + '">' + opt + "</option>";
+          if (typeof opt === "object") {
+            html += '<option value="' + opt.value + '">' + opt.label + "</option>";
+          } else {
+            html += '<option value="' + opt + '">' + opt + "</option>";
+          }
         });
       }
       html += "</select>";
@@ -606,12 +622,7 @@ function setSubmitLoading(loading) {
 
 function sanitize(str) {
   if (!str) return "";
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+  return str.trim();
 }
 
 /* ══════════════════════════════════════
@@ -655,7 +666,7 @@ function handleSubmit() {
         fd.append(el.name, sanitize(el.value.trim()));
       }
     });
-    fd.append("turnstile_token", turnstileToken);
+    fd.append("cf_turnstile_response", turnstileToken);
 
     fetch(endpoint, { method: "POST", body: fd })
       .then(handleResponse)
@@ -677,7 +688,8 @@ function handleSubmit() {
         data[el.name] = sanitize(el.value.trim());
       }
     });
-    data.turnstile_token = turnstileToken;
+    data.cf_turnstile_response = turnstileToken;
+    data.website_url = "";
 
     fetch(endpoint, {
       method: "POST",
