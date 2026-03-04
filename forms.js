@@ -2,29 +2,15 @@
    APPSHIPPING — Centralized Forms
    ═══════════════════════════════════════════
    Usage:
-     1. Include this script AFTER shared.js:
-        <script src="forms.js"></script>
-
-     2. Add an empty popup container in your HTML:
-        <div class="popup-overlay" id="popupOverlay">
-          <div class="popup" id="popupContent"></div>
-        </div>
-
-     3. Call renderForm('seller') | renderForm('developer') | renderForm('career')
-        This is already handled by the updated openPopup() below.
-
-     4. On each page, set the form type before anything else:
-        <script>
-          var FORM_TYPE = 'seller';  // or 'developer' or 'career'
-        </script>
-
-     5. For careers.html, the openPopup(position) still works —
-        it pre-selects the position dropdown after rendering.
+     1. Include this script AFTER shared.js
+     2. On each page set: var FORM_TYPE = 'seller' | 'developer' | 'career'
+     3. Add Turnstile script in <head>:
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad" async defer></script>
 ═══════════════════════════════════════════ */
 
 /* ── API Config ── */
 var API_BASE = "https://api.moait.me/api";
-var TURNSTILE_SITE_KEY = "0x4AAAAAACl2hHv_wCHp2CsB"; // ← Replace with your actual site key
+var TURNSTILE_SITE_KEY = "0x4AAAAAACl2hHv_wCHp2CsB";
 
 /* ── Endpoint map ── */
 var ENDPOINT_MAP = {
@@ -33,8 +19,50 @@ var ENDPOINT_MAP = {
   career: "/careers",
 };
 
+/* ── Turnstile state ── */
+var turnstileToken = "";
+var turnstileReady = false;
+var turnstileWidgetId = null;
+
+/* Called automatically by Turnstile script via ?onload=onTurnstileLoad */
+function onTurnstileLoad() {
+  turnstileReady = true;
+  tryRenderTurnstile();
+}
+
+function tryRenderTurnstile() {
+  if (!turnstileReady || !window.turnstile) return;
+  var container = document.getElementById("turnstileContainer");
+  if (!container) return;
+  if (container.dataset.rendered === "true") return;
+
+  turnstileWidgetId = window.turnstile.render(container, {
+    sitekey: TURNSTILE_SITE_KEY,
+    theme: "dark",
+    callback: function (token) {
+      turnstileToken = token;
+    },
+    "expired-callback": function () {
+      turnstileToken = "";
+    },
+    "error-callback": function () {
+      turnstileToken = "";
+    },
+  });
+  container.dataset.rendered = "true";
+}
+
+function resetTurnstile() {
+  turnstileToken = "";
+  if (window.turnstile && turnstileWidgetId !== null) {
+    try {
+      window.turnstile.reset(turnstileWidgetId);
+    } catch (e) {}
+  }
+}
+
 /* ── Field length limits ── */
-const FIELD_LIMITS = {
+var FIELD_LIMITS = {
   full_name: 100,
   email: 150,
   phone: 30,
@@ -47,14 +75,14 @@ const FIELD_LIMITS = {
 };
 
 /* ── Shared select options ── */
-const SALES_EXPERIENCE_OPTIONS = [
+var SALES_EXPERIENCE_OPTIONS = [
   "Yes — I've sold products or services before",
   "Yes — I work in sales professionally",
   "Some — I've done freelance or side projects",
   "No — but I'm eager to learn",
 ];
 
-const REFERRAL_OPTIONS = [
+var REFERRAL_OPTIONS = [
   "TikTok",
   "YouTube",
   "Instagram",
@@ -65,9 +93,9 @@ const REFERRAL_OPTIONS = [
   "Other",
 ];
 
-const APPS_BUILT_OPTIONS = ["1–5 apps", "6–15 apps", "16–50 apps", "50+ apps"];
+var APPS_BUILT_OPTIONS = ["1–5 apps", "6–15 apps", "16–50 apps", "50+ apps"];
 
-const POSITION_OPTIONS = [
+var POSITION_OPTIONS = [
   "Mobile Developer — Cross Platform",
   "Backend Developer — Go",
   "UI/UX Designer",
@@ -77,7 +105,7 @@ const POSITION_OPTIONS = [
 ];
 
 /* ── Form definitions ── */
-const FORM_DEFS = {
+var FORM_DEFS = {
   seller: {
     badge: "Join Appshipping",
     badgeClass: "",
@@ -319,6 +347,9 @@ function renderForm(formType) {
   var popup = document.getElementById("popupContent");
   if (!popup) return;
 
+  turnstileToken = "";
+  turnstileWidgetId = null;
+
   var html = "";
   html +=
     '<button class="popup-close" onclick="closePopup()">&#10005;</button>';
@@ -349,19 +380,17 @@ function renderForm(formType) {
     }
   });
 
-  // ── Honeypot field (hidden from real users, traps bots) ──
+  // Honeypot
   html +=
-    '<div style="position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;overflow:hidden;" aria-hidden="true">' +
-    '<input type="text" name="website_url" tabindex="-1" autocomplete="off" />' +
-    "</div>";
-
-  // ── Turnstile widget ──
+    '<div style="position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;overflow:hidden;" aria-hidden="true">';
   html +=
-    '<div class="cf-turnstile" data-sitekey="' +
-    TURNSTILE_SITE_KEY +
-    '" data-theme="dark" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired" style="margin-top:8px;"></div>';
+    '<input type="text" name="website_url" tabindex="-1" autocomplete="off" />';
+  html += "</div>";
 
-  // ── Submit button ──
+  // Turnstile container (rendered via JS, not data attributes)
+  html += '<div id="turnstileContainer" style="margin-top:8px;"></div>';
+
+  // Submit
   html +=
     '<button class="btn ' +
     def.submitClass +
@@ -369,9 +398,8 @@ function renderForm(formType) {
     def.submitLabel +
     "</button>";
 
-  // ── Status message area ──
+  // Status
   html += '<div id="formStatus" class="form-status"></div>';
-
   html += '<p class="popup-note">' + def.footnote + "</p>";
   html += "</div>";
 
@@ -387,7 +415,7 @@ function renderForm(formType) {
     });
   });
 
-  // Attach maxlength enforcement on textareas
+  // Maxlength enforcement
   popup.querySelectorAll("textarea[maxlength]").forEach(function (ta) {
     ta.addEventListener("input", function () {
       var max = parseInt(this.getAttribute("maxlength"));
@@ -395,25 +423,11 @@ function renderForm(formType) {
     });
   });
 
-  // Render Turnstile widget if the script is loaded
-  if (window.turnstile) {
-    window.turnstile.render(".cf-turnstile");
-  }
+  // Render Turnstile (handles both: script loaded before or after form)
+  tryRenderTurnstile();
 }
 
-/* ── Turnstile callbacks ── */
-var turnstileToken = "";
-
-function onTurnstileSuccess(token) {
-  turnstileToken = token;
-}
-
-function onTurnstileExpired() {
-  turnstileToken = "";
-}
-
-/* ── Build a single field's HTML ── */
-
+/* ── Build a single field ── */
 function buildField(f) {
   var req = f.required ? " *" : "";
   var optTag = f.optionalTag ? " <span>(optional)</span>" : "";
@@ -421,7 +435,6 @@ function buildField(f) {
   var reqAttr = f.required ? " required" : "";
   var html = '<div class="popup-field">';
 
-  // Label (except file — handled separately)
   if (f.type !== "file") {
     html += "<label>" + f.label + req + optTag + "</label>";
   }
@@ -436,7 +449,6 @@ function buildField(f) {
       if (limit) html += ' maxlength="' + limit + '"';
       html += reqAttr + " />";
       break;
-
     case "select":
       var idAttr = f.id ? ' id="' + f.id + '"' : "";
       var cls = f.options === "__countries__" ? ' class="country-select"' : "";
@@ -449,7 +461,6 @@ function buildField(f) {
       }
       html += "</select>";
       break;
-
     case "textarea":
       var maxAttr = limit ? ' maxlength="' + limit + '"' : "";
       html += '<textarea name="' + f.name + '"';
@@ -457,7 +468,6 @@ function buildField(f) {
       html +=
         ' rows="' + (f.rows || 3) + '"' + maxAttr + reqAttr + "></textarea>";
       break;
-
     case "file":
       var hint = f.hint ? " <span>(" + f.hint + ")</span>" : "";
       html += "<label>" + f.label + req + hint + "</label>";
@@ -475,7 +485,6 @@ function buildField(f) {
 
 function buildTermsField() {
   return (
-    "" +
     '<div class="popup-field">' +
     '<div class="terms-check">' +
     '<input type="checkbox" name="terms_accepted" id="termsCheck" required />' +
@@ -492,8 +501,6 @@ function buildTermsField() {
 
 function validateFormFields(formEl) {
   var valid = true;
-
-  // Clear old errors
   formEl.querySelectorAll(".field-error").forEach(function (e) {
     e.remove();
   });
@@ -514,7 +521,6 @@ function validateFormFields(formEl) {
     } else if (input.type === "file") {
       isEmpty = input.files.length === 0;
       errorMsg = "This file is required";
-      // Check size limit (5 MB)
       if (!isEmpty && input.files[0].size > 5 * 1024 * 1024) {
         isEmpty = true;
         errorMsg = "File must be under 5 MB";
@@ -523,7 +529,6 @@ function validateFormFields(formEl) {
       isEmpty = !input.value.trim();
     }
 
-    // Email format
     if (input.type === "email" && input.value.trim()) {
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
         isEmpty = true;
@@ -531,7 +536,6 @@ function validateFormFields(formEl) {
       }
     }
 
-    // URL format (only if filled)
     if (input.type === "url" && input.value.trim()) {
       try {
         new URL(input.value.trim());
@@ -597,7 +601,7 @@ function setSubmitLoading(loading) {
 }
 
 /* ══════════════════════════════════════
-   HTML SANITIZATION
+   SANITIZATION
 ══════════════════════════════════════ */
 
 function sanitize(str) {
@@ -619,15 +623,14 @@ function handleSubmit() {
   if (!form) return;
   if (!validateFormFields(form)) return;
 
-  // Check honeypot
+  // Honeypot check
   var honeypot = form.querySelector('input[name="website_url"]');
   if (honeypot && honeypot.value) {
-    // Bot detected — fake success
     showStatus("success", "Thanks! We'll be in touch within 72 hours.");
     return;
   }
 
-  // Check Turnstile token
+  // Turnstile check
   if (!turnstileToken) {
     showStatus("error", "Please complete the CAPTCHA verification.");
     return;
@@ -641,7 +644,6 @@ function handleSubmit() {
   setSubmitLoading(true);
 
   if (isMultipart) {
-    // Career form — multipart/form-data (for file upload)
     var fd = new FormData();
     form.querySelectorAll("input, select, textarea").forEach(function (el) {
       if (!el.name || el.name === "website_url") return;
@@ -657,14 +659,13 @@ function handleSubmit() {
 
     fetch(endpoint, { method: "POST", body: fd })
       .then(handleResponse)
-      .then(function (res) {
+      .then(function () {
         onSuccess(formType);
       })
       .catch(function (err) {
         onError(err);
       });
   } else {
-    // Seller / Developer — JSON
     var data = {};
     form.querySelectorAll("input, select, textarea").forEach(function (el) {
       if (!el.name || el.name === "website_url") return;
@@ -684,7 +685,7 @@ function handleSubmit() {
       body: JSON.stringify(data),
     })
       .then(handleResponse)
-      .then(function (res) {
+      .then(function () {
         onSuccess(formType);
       })
       .catch(function (err) {
@@ -712,15 +713,7 @@ function onSuccess(formType) {
       "Thanks for applying! We'll review your application and get back to you within 72 hours.",
   };
   showStatus("success", messages[formType] || "Submitted!");
-
-  // Reset Turnstile
-  turnstileToken = "";
-  if (window.turnstile) {
-    var widget = document.querySelector(".cf-turnstile");
-    if (widget) window.turnstile.reset(widget);
-  }
-
-  // Close popup after a short delay
+  resetTurnstile();
   setTimeout(function () {
     closePopup();
     hideStatus();
@@ -730,47 +723,21 @@ function onSuccess(formType) {
 function onError(err) {
   setSubmitLoading(false);
   showStatus("error", err.message || "Something went wrong. Please try again.");
-
-  // Reset Turnstile on error too
-  turnstileToken = "";
-  if (window.turnstile) {
-    var widget = document.querySelector(".cf-turnstile");
-    if (widget) window.turnstile.reset(widget);
-  }
-}
-
-function collectFormData(formEl) {
-  var data = {};
-  formEl.querySelectorAll("input, select, textarea").forEach(function (el) {
-    if (!el.name) return;
-    if (el.type === "checkbox") {
-      data[el.name] = el.checked;
-    } else if (el.type === "file") {
-      data[el.name] = el.files[0] ? el.files[0].name : "";
-    } else {
-      data[el.name] = el.value.trim();
-    }
-  });
-  return data;
+  resetTurnstile();
 }
 
 /* ══════════════════════════════════════
-   OVERRIDE openPopup / closePopup
-   (replaces the versions in shared.js)
+   POPUP OPEN / CLOSE
 ══════════════════════════════════════ */
 
 function openPopup(positionOrType) {
-  // Reset turnstile token
   turnstileToken = "";
-
-  // Determine which form to render based on page-level FORM_TYPE
   var type = typeof FORM_TYPE !== "undefined" ? FORM_TYPE : "seller";
   renderForm(type);
 
   document.getElementById("popupOverlay").classList.add("open");
   document.body.style.overflow = "hidden";
 
-  // Career page: pre-select position if passed
   if (type === "career" && positionOrType) {
     var sel = document.getElementById("positionSelect");
     if (sel) {
@@ -793,7 +760,6 @@ function closePopup() {
   document.body.style.overflow = "";
 }
 
-// Close on overlay click or Escape
 document.addEventListener("DOMContentLoaded", function () {
   var overlay = document.getElementById("popupOverlay");
   if (overlay) {
