@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════
    APPSHIPPING — Centralized Forms
    ═══════════════════════════════════════════
    Usage:
@@ -504,7 +504,7 @@ function buildTermsField() {
     '<div class="popup-field">' +
     '<div class="terms-check">' +
     '<input type="checkbox" name="terms_accepted" id="termsCheck" required />' +
-    '<label for="termsCheck">I have read and agree to the <a href="terms.html" target="_blank">Terms &amp; Conditions</a></label>' +
+    '<label for="termsCheck">I have read and agree to the <a href="/terms/" target="_blank">Terms &amp; Conditions</a></label>' +
     "</div>" +
     '<p class="terms-note">Please read the terms before applying.</p>' +
     "</div>"
