@@ -22,6 +22,17 @@
         it pre-selects the position dropdown after rendering.
 ═══════════════════════════════════════════ */
 
+/* ── API Config ── */
+var API_BASE = "https://api.moait.me/api";
+var TURNSTILE_SITE_KEY = "0x4AAAAAACl2hHv_wCHp2CsB"; // ← Replace with your actual site key
+
+/* ── Endpoint map ── */
+var ENDPOINT_MAP = {
+  seller: "/seller",
+  developer: "/developer",
+  career: "/careers",
+};
+
 /* ── Field length limits ── */
 const FIELD_LIMITS = {
   full_name: 100,
@@ -302,13 +313,13 @@ const FORM_DEFS = {
 ══════════════════════════════════════ */
 
 function renderForm(formType) {
-  const def = FORM_DEFS[formType];
+  var def = FORM_DEFS[formType];
   if (!def) return;
 
-  const popup = document.getElementById("popupContent");
+  var popup = document.getElementById("popupContent");
   if (!popup) return;
 
-  let html = "";
+  var html = "";
   html +=
     '<button class="popup-close" onclick="closePopup()">&#10005;</button>';
   html +=
@@ -338,12 +349,29 @@ function renderForm(formType) {
     }
   });
 
+  // ── Honeypot field (hidden from real users, traps bots) ──
+  html +=
+    '<div style="position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;overflow:hidden;" aria-hidden="true">' +
+    '<input type="text" name="website_url" tabindex="-1" autocomplete="off" />' +
+    "</div>";
+
+  // ── Turnstile widget ──
+  html +=
+    '<div class="cf-turnstile" data-sitekey="' +
+    TURNSTILE_SITE_KEY +
+    '" data-theme="dark" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired" style="margin-top:8px;"></div>';
+
+  // ── Submit button ──
   html +=
     '<button class="btn ' +
     def.submitClass +
-    ' btn-large popup-submit" onclick="handleSubmit()">' +
+    ' btn-large popup-submit" id="formSubmitBtn" onclick="handleSubmit()">' +
     def.submitLabel +
     "</button>";
+
+  // ── Status message area ──
+  html += '<div id="formStatus" class="form-status"></div>';
+
   html += '<p class="popup-note">' + def.footnote + "</p>";
   html += "</div>";
 
@@ -359,13 +387,29 @@ function renderForm(formType) {
     });
   });
 
-  // Attach maxlength enforcement on textareas (attribute doesn't always stop paste)
+  // Attach maxlength enforcement on textareas
   popup.querySelectorAll("textarea[maxlength]").forEach(function (ta) {
     ta.addEventListener("input", function () {
       var max = parseInt(this.getAttribute("maxlength"));
       if (this.value.length > max) this.value = this.value.substring(0, max);
     });
   });
+
+  // Render Turnstile widget if the script is loaded
+  if (window.turnstile) {
+    window.turnstile.render(".cf-turnstile");
+  }
+}
+
+/* ── Turnstile callbacks ── */
+var turnstileToken = "";
+
+function onTurnstileSuccess(token) {
+  turnstileToken = token;
+}
+
+function onTurnstileExpired() {
+  turnstileToken = "";
 }
 
 /* ── Build a single field's HTML ── */
@@ -443,7 +487,7 @@ function buildTermsField() {
 }
 
 /* ══════════════════════════════════════
-   VALIDATION (replaces shared.js version)
+   VALIDATION
 ══════════════════════════════════════ */
 
 function validateFormFields(formEl) {
@@ -515,26 +559,151 @@ function validateFormFields(formEl) {
 }
 
 /* ══════════════════════════════════════
-   SUBMISSION
+   STATUS HELPERS
 ══════════════════════════════════════ */
 
-// TODO: Replace alert() with actual fetch() to your Go backend
-// Example endpoint structure:
-//   POST /api/apply/seller
-//   POST /api/apply/developer
-//   POST /api/apply/career     (multipart/form-data for file)
+function showStatus(type, msg) {
+  var el = document.getElementById("formStatus");
+  if (!el) return;
+  el.className = "form-status " + type;
+  el.textContent = msg;
+  el.style.display = "block";
+}
+
+function hideStatus() {
+  var el = document.getElementById("formStatus");
+  if (el) {
+    el.style.display = "none";
+    el.textContent = "";
+    el.className = "form-status";
+  }
+}
+
+function setSubmitLoading(loading) {
+  var btn = document.getElementById("formSubmitBtn");
+  if (!btn) return;
+  if (loading) {
+    btn.disabled = true;
+    btn.dataset.originalText = btn.textContent;
+    btn.textContent = "Sending…";
+    btn.style.opacity = "0.6";
+    btn.style.pointerEvents = "none";
+  } else {
+    btn.disabled = false;
+    btn.textContent = btn.dataset.originalText || "Submit";
+    btn.style.opacity = "";
+    btn.style.pointerEvents = "";
+  }
+}
+
+/* ══════════════════════════════════════
+   HTML SANITIZATION
+══════════════════════════════════════ */
+
+function sanitize(str) {
+  if (!str) return "";
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+/* ══════════════════════════════════════
+   SUBMISSION
+══════════════════════════════════════ */
 
 function handleSubmit() {
   var form = document.getElementById("activeForm");
   if (!form) return;
   if (!validateFormFields(form)) return;
 
+  // Check honeypot
+  var honeypot = form.querySelector('input[name="website_url"]');
+  if (honeypot && honeypot.value) {
+    // Bot detected — fake success
+    showStatus("success", "Thanks! We'll be in touch within 72 hours.");
+    return;
+  }
+
+  // Check Turnstile token
+  if (!turnstileToken) {
+    showStatus("error", "Please complete the CAPTCHA verification.");
+    return;
+  }
+
   var formType = form.getAttribute("data-form-type");
-  var data = collectFormData(form);
+  var endpoint = API_BASE + (ENDPOINT_MAP[formType] || "/contact");
+  var isMultipart = formType === "career";
 
-  // ── For now: alert. Replace with fetch() later. ──
-  console.log("[" + formType + "] form data:", data);
+  hideStatus();
+  setSubmitLoading(true);
 
+  if (isMultipart) {
+    // Career form — multipart/form-data (for file upload)
+    var fd = new FormData();
+    form.querySelectorAll("input, select, textarea").forEach(function (el) {
+      if (!el.name || el.name === "website_url") return;
+      if (el.type === "checkbox") {
+        fd.append(el.name, el.checked ? "true" : "false");
+      } else if (el.type === "file") {
+        if (el.files[0]) fd.append(el.name, el.files[0]);
+      } else {
+        fd.append(el.name, sanitize(el.value.trim()));
+      }
+    });
+    fd.append("turnstile_token", turnstileToken);
+
+    fetch(endpoint, { method: "POST", body: fd })
+      .then(handleResponse)
+      .then(function (res) {
+        onSuccess(formType);
+      })
+      .catch(function (err) {
+        onError(err);
+      });
+  } else {
+    // Seller / Developer — JSON
+    var data = {};
+    form.querySelectorAll("input, select, textarea").forEach(function (el) {
+      if (!el.name || el.name === "website_url") return;
+      if (el.type === "checkbox") {
+        data[el.name] = el.checked;
+      } else if (el.type === "file") {
+        // skip
+      } else {
+        data[el.name] = sanitize(el.value.trim());
+      }
+    });
+    data.turnstile_token = turnstileToken;
+
+    fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then(handleResponse)
+      .then(function (res) {
+        onSuccess(formType);
+      })
+      .catch(function (err) {
+        onError(err);
+      });
+  }
+}
+
+function handleResponse(resp) {
+  if (!resp.ok) {
+    return resp.json().then(function (body) {
+      throw new Error(body.error || "Something went wrong. Please try again.");
+    });
+  }
+  return resp.json();
+}
+
+function onSuccess(formType) {
+  setSubmitLoading(false);
   var messages = {
     seller: "Thanks for applying! We'll be in touch within 72 hours.",
     developer:
@@ -542,35 +711,32 @@ function handleSubmit() {
     career:
       "Thanks for applying! We'll review your application and get back to you within 72 hours.",
   };
-  alert(messages[formType] || "Submitted!");
-  closePopup();
+  showStatus("success", messages[formType] || "Submitted!");
 
-  /* ── When ready, replace the alert above with something like: ──
-
-  var endpoint = '/api/apply/' + formType;
-  var isMultipart = formType === 'career';
-
-  if (isMultipart) {
-    var fd = new FormData();
-    Object.keys(data).forEach(function(k) { fd.append(k, data[k]); });
-    var fileInput = form.querySelector('input[type="file"]');
-    if (fileInput && fileInput.files[0]) fd.append('resume', fileInput.files[0]);
-
-    fetch(endpoint, { method: 'POST', body: fd })
-      .then(function(r) { return r.json(); })
-      .then(function(res) { alert(messages[formType]); closePopup(); })
-      .catch(function(err) { alert('Something went wrong. Please try again.'); });
-  } else {
-    fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-      .then(function(r) { return r.json(); })
-      .then(function(res) { alert(messages[formType]); closePopup(); })
-      .catch(function(err) { alert('Something went wrong. Please try again.'); });
+  // Reset Turnstile
+  turnstileToken = "";
+  if (window.turnstile) {
+    var widget = document.querySelector(".cf-turnstile");
+    if (widget) window.turnstile.reset(widget);
   }
-  */
+
+  // Close popup after a short delay
+  setTimeout(function () {
+    closePopup();
+    hideStatus();
+  }, 3000);
+}
+
+function onError(err) {
+  setSubmitLoading(false);
+  showStatus("error", err.message || "Something went wrong. Please try again.");
+
+  // Reset Turnstile on error too
+  turnstileToken = "";
+  if (window.turnstile) {
+    var widget = document.querySelector(".cf-turnstile");
+    if (widget) window.turnstile.reset(widget);
+  }
 }
 
 function collectFormData(formEl) {
@@ -580,7 +746,6 @@ function collectFormData(formEl) {
     if (el.type === "checkbox") {
       data[el.name] = el.checked;
     } else if (el.type === "file") {
-      // Files handled separately in FormData for multipart
       data[el.name] = el.files[0] ? el.files[0].name : "";
     } else {
       data[el.name] = el.value.trim();
@@ -595,6 +760,9 @@ function collectFormData(formEl) {
 ══════════════════════════════════════ */
 
 function openPopup(positionOrType) {
+  // Reset turnstile token
+  turnstileToken = "";
+
   // Determine which form to render based on page-level FORM_TYPE
   var type = typeof FORM_TYPE !== "undefined" ? FORM_TYPE : "seller";
   renderForm(type);
