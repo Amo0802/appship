@@ -12,7 +12,19 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="index.css" />
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad" async defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad" async
+    defer></script>
+  <link rel="icon" href="/favicon.ico">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="manifest" href="/site.webmanifest">
 </head>
 
 <body>
@@ -588,6 +600,40 @@
       document.getElementById('crOurs').textContent = '$' + ours.toLocaleString();
     }
     updateCalc();
+  </script>
+
+  <script>
+    (function () {
+      var phones = document.querySelectorAll('.hero-phone');
+      var images = document.querySelectorAll('.hero-phone img');
+      var loaded = 0;
+      var total = images.length;
+
+      function reveal() {
+        phones.forEach(function (p) { p.classList.add('loaded'); });
+      }
+
+      if (total === 0) { reveal(); return; }
+
+      images.forEach(function (img) {
+        if (img.complete) {
+          loaded++;
+          if (loaded >= total) reveal();
+        } else {
+          img.addEventListener('load', function () {
+            loaded++;
+            if (loaded >= total) reveal();
+          });
+          img.addEventListener('error', function () {
+            loaded++;
+            if (loaded >= total) reveal();
+          });
+        }
+      });
+
+      // Safety fallback — reveal after 3s no matter what
+      setTimeout(reveal, 3000);
+    })();
   </script>
 </body>
 

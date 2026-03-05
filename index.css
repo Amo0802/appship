@@ -2,6 +2,68 @@
    INDEX PAGE — Specific Styles
 ═══════════════════════════════════════════ */
 
+/* ── HERO LOAD ANIMATION ── */
+.hero-phone {
+  opacity: 0;
+  transform-origin: center center;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.hero-phone.loaded:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.hero-phone.loaded:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.hero-phone.loaded:nth-child(3) {
+  transition-delay: 0.24s;
+}
+
+.hero-phone.loaded:nth-child(4) {
+  transition-delay: 0.36s;
+}
+
+.hero-phone.loaded:nth-child(5) {
+  transition-delay: 0.48s;
+}
+
+.hero-phone.loaded {
+  opacity: 1;
+}
+
+/* Shimmer while loading */
+.hero-phone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg,
+      rgba(255, 255, 255, 0.03) 30%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0.03) 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease infinite;
+  border-radius: inherit;
+  z-index: 1;
+  transition: opacity 0.4s;
+}
+
+.hero-phone.loaded::before {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 /* ── HERO ── */
 .hero {
   position: relative;
@@ -192,7 +254,7 @@
   height: 426px;
   z-index: 1;
   transform: translateX(-110%) rotate(-6deg);
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 .hero-phone:nth-child(2) {
@@ -200,7 +262,7 @@
   height: 426px;
   z-index: 2;
   transform: translateX(-55%) rotate(-3deg);
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 
 .hero-phone:nth-child(3) {
@@ -214,7 +276,7 @@
   height: 426px;
   z-index: 2;
   transform: translateX(55%) rotate(3deg);
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 
 .hero-phone:nth-child(5) {
@@ -222,7 +284,7 @@
   height: 426px;
   z-index: 1;
   transform: translateX(110%) rotate(6deg);
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 /* ── SECTION PAD ── */
