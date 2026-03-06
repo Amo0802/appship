@@ -793,6 +793,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Fix iOS select-to-select tap race condition
+document.addEventListener("touchstart", function (e) {
+  if (e.target.tagName === "SELECT") {
+    var active = document.activeElement;
+    if (active && active.tagName === "SELECT" && active !== e.target) {
+      e.preventDefault();
+      active.blur();
+      setTimeout(function () {
+        e.target.focus();
+      }, 60);
+    }
+  }
+}, { passive: false });
+
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closePopup();
 });
