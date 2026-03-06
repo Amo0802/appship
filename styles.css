@@ -687,6 +687,80 @@ footer a:hover {
   }
 }
 
+/* ═══════════════════════════════════════════
+   MOBILE POPUP FIXES
+═══════════════════════════════════════════ */
+
+/* Prevent iOS zoom on input focus — requires font-size >= 16px */
+@media (max-width: 960px) {
+
+  .popup-field input,
+  .popup-field textarea,
+  .popup-field select {
+    font-size: 16px;
+  }
+}
+
+/* Prevent double-tap-to-zoom on interactive elements */
+.popup-overlay,
+.popup,
+.popup-field input,
+.popup-field textarea,
+.popup-field select,
+.popup-field label,
+.popup-submit,
+.popup-close,
+.terms-check,
+.terms-check input,
+.terms-check label,
+.file-input-wrap {
+  touch-action: manipulation;
+}
+
+/* iOS body scroll lock — toggled via JS */
+body.popup-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Use dvh where supported to account for Safari toolbar */
+@supports (height: 100dvh) {
+  .popup-overlay {
+    height: 100dvh;
+  }
+}
+
+/* Mobile popup sizing with safe-area for iPhone home bar */
+@media (max-width: 960px) {
+  .popup-overlay {
+    padding: 12px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    align-items: flex-end;
+  }
+
+  .popup {
+    max-height: calc(100dvh - 24px - env(safe-area-inset-bottom, 0px));
+    border-radius: 20px;
+    padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px));
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (max-width: 600px) {
+  .popup-overlay {
+    padding: 8px;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .popup {
+    max-height: calc(100dvh - 16px - env(safe-area-inset-bottom, 0px));
+    padding: 28px 20px;
+    padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 /* ── Form Status Messages ── */
 .form-status {
   display: none;

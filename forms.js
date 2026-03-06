@@ -748,7 +748,9 @@ function openPopup(positionOrType) {
   renderForm(type);
 
   document.getElementById("popupOverlay").classList.add("open");
-  document.body.style.overflow = "hidden";
+  document.body.dataset.scrollY = window.scrollY;
+  document.body.style.top = "-" + window.scrollY + "px";
+  document.body.classList.add("popup-open");
 
   if (type === "career" && positionOrType) {
     var sel = document.getElementById("positionSelect");
@@ -769,7 +771,10 @@ function openPopup(positionOrType) {
 function closePopup() {
   var overlay = document.getElementById("popupOverlay");
   if (overlay) overlay.classList.remove("open");
-  document.body.style.overflow = "";
+  var scrollY = parseInt(document.body.dataset.scrollY || "0");
+  document.body.classList.remove("popup-open");
+  document.body.style.top = "";
+  window.scrollTo(0, scrollY);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -778,8 +783,16 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.addEventListener("click", function (e) {
       if (e.target === this) closePopup();
     });
+    // Prevent touch events on the popup from bubbling to the overlay
+    var popup = document.getElementById("popupContent");
+    if (popup) {
+      popup.addEventListener("touchstart", function (e) {
+        e.stopPropagation();
+      }, { passive: true });
+    }
   }
 });
+
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closePopup();
 });
